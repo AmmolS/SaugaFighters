@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.security.KeyRep;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -9,10 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    @Override
     public void start(Stage stage) throws FileNotFoundException {
 
         Image background = new Image(new FileInputStream
-                ("C:\\Users\\chris\\IdeaProjects\\StreetFighters\\src\\Assets\\Background1.gif"));
+                ("C:\\Users\\user\\Desktop\\CSproject\\StreetFighters\\src\\Assets\\Background1.gif"));
         ImageView imageView = new ImageView(background);
         imageView.setX(0);
         imageView.setY(0);
@@ -23,7 +25,7 @@ public class Main extends Application {
         stage.show();
 
         Image image11 = new Image(new FileInputStream
-                ("C:\\Users\\chris\\IdeaProjects\\StreetFighters\\src\\Assets\\Kratos\\KratosStance.gif"));
+                ("C:\\Users\\user\\Desktop\\CSproject\\StreetFighters\\src\\Assets\\Kratos\\KratosStance.gif"));
         ImageView Kratos = new ImageView();
         Kratos.setFitHeight(300);
         Kratos.setFitWidth(300);
@@ -32,15 +34,6 @@ public class Main extends Application {
         Kratos.setX(300);
         Kratos.setY(300);
         root.getChildren().add(Kratos);
-
-        Kratos.setOnKeyPressed(
-                event -> {
-                    switch (event.getCode()) {
-                        case RIGHT:
-                            Kratos.setX(+50);
-                    }
-                }
-        );
     }
     public static void main(String args[]) {
         launch(args);
