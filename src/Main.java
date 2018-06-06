@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws FileNotFoundException {
 
-        Image background = new Image("https://theultralinx.com/.image/t_share/MTI5MDI0MjM1MjkyMTAzOTU0/l6xgvsw.gif");
+        Image background = new Image("/Assets/Background1.gif");
         ImageView imageView = new ImageView(background);
         imageView.setX(0);
         imageView.setY(0);
