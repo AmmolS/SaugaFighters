@@ -13,8 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws FileNotFoundException {
 
-        Image background = new Image(new FileInputStream
-                ("C:\\Users\\user\\Desktop\\CSproject\\StreetFighters\\src\\Assets\\Background1.gif"));
+        Image background = new Image("https://theultralinx.com/.image/t_share/MTI5MDI0MjM1MjkyMTAzOTU0/l6xgvsw.gif");
         ImageView imageView = new ImageView(background);
         imageView.setX(0);
         imageView.setY(0);
@@ -24,8 +23,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Image image11 = new Image(new FileInputStream
-                ("C:\\Users\\user\\Desktop\\CSproject\\StreetFighters\\src\\Assets\\Kratos\\KratosStance.gif"));
+        Image image11 = new Image("http://www.zweifuss.ca/alex/alexstance.gif");
         ImageView Kratos = new ImageView();
         Kratos.setFitHeight(300);
         Kratos.setFitWidth(300);
