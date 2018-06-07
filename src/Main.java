@@ -41,13 +41,18 @@ public class Main extends Application {
         root.getChildren().add(Kratos);
 
 
-        scene.setOnKeyPressed(e-> {
+        scene.setOnKeyPressed(e->
+                {
                     if(e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
+                        Kratos.setImage(KratosForward);
                         Kratos.setLayoutX(Kratos.getLayoutX() + 10);
                         if(Kratos.getLayoutX() > 350) {
                             Kratos.setLayoutX(Kratos.getLayoutX() - 10);
                         }
-                    } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
+                    }
+                    else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A)
+                    {
+                        Kratos.setImage(KratosBackward);
                         Kratos.setLayoutX(Kratos.getLayoutX() - 10);
                         if(Kratos.getLayoutX() < -100) {
                             Kratos.setLayoutX(Kratos.getLayoutX() + 10);
@@ -59,6 +64,7 @@ public class Main extends Application {
                     }
                 }
         );
+
 
         stage.getIcons().add(new Image("/Assets/Logo.png"));
     }
