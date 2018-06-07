@@ -28,6 +28,9 @@ public class Main extends Application {
         stage.show();
 
         Image image11 = new Image("/Assets/Kratos/KratosStance.gif");
+        Image KratosForward = new Image("/Assets/Kratos/KratosForward.gif");
+        Image KratosBackward = new Image("/Assets/Kratos/KratosBackward.gif");
+
         ImageView Kratos = new ImageView();
         Kratos.setFitHeight(300);
         Kratos.setFitWidth(290);
@@ -38,37 +41,22 @@ public class Main extends Application {
         root.getChildren().add(Kratos);
 
 
-        scene.setOnKeyPressed(e->
-                {
-                if(e.getCode() == KeyCode.RIGHT)
-                {
-                    Kratos.setLayoutX(Kratos.getLayoutX() + 10);
-                    if(Kratos.getLayoutX() > 600)
-                    {
-                        Kratos.setLayoutX(Kratos.getLayoutX() + 0);
-                    }
-
-                } if (e.getCode() == KeyCode.LEFT)
-                {
-                    //change the value of x and y appropriately
+        scene.setOnKeyPressed(e-> {
+                    if(e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
+                        Kratos.setLayoutX(Kratos.getLayoutX() + 10);
+                        if(Kratos.getLayoutX() > 350) {
+                            Kratos.setLayoutX(Kratos.getLayoutX() - 10);
+                        }
+                    } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
                         Kratos.setLayoutX(Kratos.getLayoutX() - 10);
+                        if(Kratos.getLayoutX() < -100) {
+                            Kratos.setLayoutX(Kratos.getLayoutX() + 10);
+                        }
+                    }
+                    if(e.getCode() == KeyCode.SPACE)
+                    {
 
-                }
-                if(e.getCode() == KeyCode.D)
-                {
-                    Kratos.setLayoutX(Kratos.getLayoutX() + 10);
-
-                } if (e.getCode() == KeyCode.A)
-                {
-                //change the value of x and y appropriately
-                    Kratos.setLayoutX(Kratos.getLayoutX() - 10);
-                }
-
-                if(e.getCode() == KeyCode.SPACE)
-                {
-
-                }
-
+                    }
                 }
         );
 
