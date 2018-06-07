@@ -1,18 +1,16 @@
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.URL;
-import java.security.KeyRep;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class Main extends Application {
@@ -39,27 +37,51 @@ public class Main extends Application {
         Kratos.setY(300);
         root.getChildren().add(Kratos);
 
-        scene.setOnKeyPressed(e->{
-            //while (Kratos.getLayoutX() > 0)
-            //{
-                if (e.getCode() == KeyCode.RIGHT) {
-                    //change the value of x and y appropriately
+
+        scene.setOnKeyPressed(e->
+                {
+                if(e.getCode() == KeyCode.RIGHT)
+                {
                     Kratos.setLayoutX(Kratos.getLayoutX() + 10);
-                } else if (e.getCode() == KeyCode.LEFT) {
+                    if(Kratos.getLayoutX() > 600)
+                    {
+                        Kratos.setLayoutX(Kratos.getLayoutX() + 0);
+                    }
+
+                } if (e.getCode() == KeyCode.LEFT)
+                {
                     //change the value of x and y appropriately
+                        Kratos.setLayoutX(Kratos.getLayoutX() - 10);
+
+                }
+                if(e.getCode() == KeyCode.D)
+                {
+                    Kratos.setLayoutX(Kratos.getLayoutX() + 10);
+
+                } if (e.getCode() == KeyCode.A)
+                {
+                //change the value of x and y appropriately
                     Kratos.setLayoutX(Kratos.getLayoutX() - 10);
                 }
-            //}
-            //check for other arrow keys
-        });
 
+                if(e.getCode() == KeyCode.SPACE)
+                {
 
+                }
 
+                }
+        );
 
         stage.getIcons().add(new Image("/Assets/Logo.png"));
     }
 
 
+    public void jump()
+    {
+        boolean jumping  = false;
+        boolean falling = true;
+
+    }
 
     public static void main(String args[]) {
         launch(args);
