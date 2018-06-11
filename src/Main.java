@@ -30,7 +30,11 @@ public class Main extends Application implements EventHandler<ActionEvent>
     {
 
         stage.setTitle("Street Fighters");
-        start = new Button("Start");
+        Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
+//        start = new Button("", new ImageView(imageStart));
+        start = new Button();
+        start.setGraphic(new ImageView(imageStart));
+
         Button quit = new Button("Quit");
         start.setOnAction(this);
         StackPane layout = new StackPane();
@@ -40,12 +44,12 @@ public class Main extends Application implements EventHandler<ActionEvent>
         stage.getIcons().add(new Image("/Assets/Logo.png"));
 
 
-        Image background = new Image("/Assets/Background1.gif");
+        Image background = new Image("/Assets/Menu/Start_Menu.gif");
         ImageView imageView = new ImageView(background);
         imageView.setX(0);
         imageView.setY(0);
         Group root = new Group(imageView);
-        Scene scene = new Scene(layout, 1200, 603);
+        Scene scene = new Scene(root, 1200, 603);
 
         stage.setScene(scene);
         stage.show();
