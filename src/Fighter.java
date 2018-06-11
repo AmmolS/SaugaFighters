@@ -4,8 +4,9 @@ public class Fighter
     double health;
     double powerBar;
     double movementSpeed;
+    double baseDamage;
 
-    Fighter(String n, double h, double p, double m)
+    Fighter(String inputName, double inputHealth, double inputPower, double inputMovement, double inputDamage)
     {
 
     }
