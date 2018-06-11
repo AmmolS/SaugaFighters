@@ -18,7 +18,7 @@ public class Main extends Application {
         imageView.setY(0);
         Group root = new Group(imageView);
         Scene scene = new Scene(root, 1200, 603);
-        stage.setTitle("Street Fighter");
+        stage.setTitle("Street Fighters");
         stage.setScene(scene);
         stage.show();
 
