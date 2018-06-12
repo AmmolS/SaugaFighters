@@ -1,9 +1,9 @@
-.start
+.button
 {
     -fx-background-color: transparent;
 }
 
-.start:focus
+.button:hover
 {
-    -fx-background-image: url("/Assets/Menu/start_hover.png");
+    -fx-
 }
