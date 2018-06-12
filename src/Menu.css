@@ -1,0 +1,9 @@
+.start
+{
+    -fx-background-color: transparent;
+}
+
+.start:focus
+{
+    -fx-background-image: url("/Assets/Menu/start_hover.png");
+}

@@ -34,6 +34,9 @@ public class Main extends Application implements EventHandler<ActionEvent>
 //        start = new Button("", new ImageView(imageStart));
         start = new Button();
         start.setGraphic(new ImageView(imageStart));
+        start.setStyle("-fx-background-color: transparent; ");
+
+
 
         Button quit = new Button("Quit");
         start.setOnAction(this);
@@ -49,7 +52,9 @@ public class Main extends Application implements EventHandler<ActionEvent>
         imageView.setX(0);
         imageView.setY(0);
         Group root = new Group(imageView);
-        Scene scene = new Scene(root, 1200, 603);
+        Scene scene = new Scene(layout, 1200, 603);
+
+//        start.getStylesheets().add(getClass().getResource("Menu.css.css").toExternalForm());
 
         stage.setScene(scene);
         stage.show();
