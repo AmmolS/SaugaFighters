@@ -34,7 +34,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
 //        start = new Button("", new ImageView(imageStart));
         start = new Button();
         start.setGraphic(new ImageView(imageStart));
-        start.setStyle("-fx-background-color: transparent; ");
+//        start.setStyle("-fx-background-color: transparent; ");
 
 
 
@@ -54,7 +54,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
         Group root = new Group(imageView);
         Scene scene = new Scene(layout, 1200, 603);
 
-//        start.getStylesheets().add(getClass().getResource("Menu.css.css").toExternalForm());
+        start.getStylesheets().add(getClass().getResource("Menu.css").toExternalForm());
 
         stage.setScene(scene);
         stage.show();
@@ -111,5 +111,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
             System.out.println("k");
         }
     }
+
+
 
 }
