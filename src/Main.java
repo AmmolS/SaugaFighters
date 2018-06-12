@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -21,6 +22,8 @@ public class Main extends Application implements EventHandler<ActionEvent>
     ImageView title;
     Button start;
     Button quit;
+    ImageView ariesWakeMenu;
+    ImageView kratosWakeMenu;
 
     public static void main(String args[])
     {
@@ -44,6 +47,8 @@ public class Main extends Application implements EventHandler<ActionEvent>
         Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
         Image imageQuit = new Image(getClass().getResourceAsStream("/Assets/Menu/quit.png"));
         Image imageTitle = new Image(getClass().getResourceAsStream("/Assets/Menu/title.png"));
+        Image imageAriesWake = new Image(getClass().getResourceAsStream("/Assets/Aries/AriesWakeUp.gif"));
+
 //        start = new Button("", new ImageView(imageStart));
 
         title = new ImageView(imageTitle);
@@ -64,6 +69,9 @@ public class Main extends Application implements EventHandler<ActionEvent>
         quit.setLayoutX(465);
         quit.setLayoutY(375);
 
+        ariesWakeMenu = new ImageView(imageAriesWake);
+
+
 //        StackPane layout = new StackPane();
 //        layout.getChildren().add(start);
 //        layout.getChildren().add(imageView);
@@ -77,6 +85,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
 
 //        start.getStylesheets().add(getClass().getResource("Menu.css").toExternalForm());
 
+        scene.setCursor(new ImageCursor());
         stage.setScene(scene);
         stage.show();
 
@@ -131,6 +140,11 @@ public class Main extends Application implements EventHandler<ActionEvent>
         {
             System.out.println("k");
         }
+        if(event.getSource() == quit)
+        {
+            System.exit(0);
+        }
+
     }
 
 
