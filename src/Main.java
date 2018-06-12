@@ -18,7 +18,9 @@ import javax.swing.*;
 public class Main extends Application implements EventHandler<ActionEvent>
 {
 
+    ImageView title;
     Button start;
+    Button quit;
 
     public static void main(String args[])
     {
@@ -30,31 +32,50 @@ public class Main extends Application implements EventHandler<ActionEvent>
     {
 
         stage.setTitle("Street Fighters");
-        Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
-//        start = new Button("", new ImageView(imageStart));
-        start = new Button();
-        start.setGraphic(new ImageView(imageStart));
-//        start.setStyle("-fx-background-color: transparent; ");
-
-
-
-        Button quit = new Button("Quit");
-        start.setOnAction(this);
-        StackPane layout = new StackPane();
-
-        layout.getChildren().add(start);
-
         stage.getIcons().add(new Image("/Assets/Logo.png"));
-
 
         Image background = new Image("/Assets/Menu/Start_Menu.gif");
         ImageView imageView = new ImageView(background);
         imageView.setX(0);
         imageView.setY(0);
-        Group root = new Group(imageView);
-        Scene scene = new Scene(layout, 1200, 603);
+        imageView.setFitHeight(603);
+        imageView.setFitWidth(1200);
 
-        start.getStylesheets().add(getClass().getResource("Menu.css").toExternalForm());
+        Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
+        Image imageQuit = new Image(getClass().getResourceAsStream("/Assets/Menu/quit.png"));
+        Image imageTitle = new Image(getClass().getResourceAsStream("/Assets/Menu/title.png"));
+//        start = new Button("", new ImageView(imageStart));
+
+        title = new ImageView(imageTitle);
+        title.setX(100);
+        title.setY(50);
+
+        start = new Button();
+        start.setGraphic(new ImageView(imageStart));
+        start.setStyle("-fx-background-color: transparent; ");
+        start.setOnAction(this);
+        start.setLayoutX(525);
+        start.setLayoutY(300);
+
+        quit = new Button();
+        quit.setGraphic(new ImageView(imageQuit));
+        quit.setStyle("-fx-background-color: transparent; ");
+        quit.setOnAction(this);
+        quit.setLayoutX(465);
+        quit.setLayoutY(375);
+
+//        StackPane layout = new StackPane();
+//        layout.getChildren().add(start);
+//        layout.getChildren().add(imageView);
+
+        Group root = new Group(imageView);
+        root.getChildren().add(title);
+        root.getChildren().add(start);
+        root.getChildren().add(quit);
+
+        Scene scene = new Scene(root, 1200, 603);
+
+//        start.getStylesheets().add(getClass().getResource("Menu.css").toExternalForm());
 
         stage.setScene(scene);
         stage.show();
