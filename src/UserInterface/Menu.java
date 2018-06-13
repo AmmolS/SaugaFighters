@@ -11,8 +11,9 @@ import javafx.stage.Stage;
 public class Menu
 {
 
-    public static Scene ShowMenu(Stage stage)
+    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc)
     {
+        // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
         Image imageStart = new Image("/Assets/Menu/start.png");
         Image imageQuit = new Image("/Assets/Menu/quit.png");
@@ -20,7 +21,7 @@ public class Menu
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
         Image imageKratosStance = new Image("/Assets/Kratos/KratosStance.gif");
 
-        // Start UserInterface.Menu
+        // Make Start Menu
         ImageView backgroundMenu = new ImageView(imageBackground);
         backgroundMenu.setX(0);
         backgroundMenu.setY(0);
@@ -42,7 +43,7 @@ public class Menu
         Button start = new Button();
         start.setGraphic(new ImageView(imageStart));
         start.setStyle("-fx-background-color: transparent; ");
-        start.setOnAction(event -> stage.setScene(CharacterSelect.ShowCharacterSelect(stage)));
+        start.setOnAction(event -> stage.setScene(sc.getSc()));
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart)));
         start.setLayoutX(525);

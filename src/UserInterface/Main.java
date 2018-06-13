@@ -1,6 +1,8 @@
 package UserInterface;
 
 import java.io.FileNotFoundException;
+
+import Fighters.Fighter;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -18,10 +20,13 @@ public class Main extends Application
     public void start(Stage stage) throws FileNotFoundException
     {
 
+        System.out.println(javafx.scene.text.Font.getFamilies());
         stage.setTitle("Sauga Fighters");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
-        stage.setScene(Menu.ShowMenu(stage));
+        CharacterSelectScreen sc = new CharacterSelectScreen(stage);
+        stage.setScene(Menu.ShowMenu(stage, sc));
         stage.show();
+
 
 
 
