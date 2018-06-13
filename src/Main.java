@@ -47,6 +47,14 @@ public class Main extends Application
         title = new ImageView(imageTitle);
         title.setX(100);
         title.setY(50);
+        title.setOnMouseEntered(event -> {
+            title.setFitHeight(320);
+            title.setFitWidth(1020);
+        });
+        title.setOnMouseExited(event -> {
+            title.setFitHeight(300);
+            title.setFitWidth(1000);
+        });
 
         start = new Button();
         start.setGraphic(new ImageView(imageStart));
@@ -69,8 +77,6 @@ public class Main extends Application
         ariesStanceMenu = new ImageView(imageAriesStance);
         ariesStanceMenu.setX(200);
         ariesStanceMenu.setY(325);
-        ariesStanceMenu.setFitWidth(156);
-        ariesStanceMenu.setFitHeight(222);
 
         Group startMenuLayout = new Group();
         startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, ariesStanceMenu);
@@ -91,8 +97,6 @@ public class Main extends Application
 
 
         ariesStanceChar = new ImageView(imageAriesStance);
-        ariesStanceChar.setFitWidth(156);
-        ariesStanceChar.setFitHeight(222);
         ariesStanceCharButton = new Button("Aries", ariesStanceChar);
         ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
@@ -105,8 +109,6 @@ public class Main extends Application
         ariesStanceCharButton.setOnMouseExited(event -> ariesStanceCharButton.setGraphic(ariesStanceChar));
 
         kratosStanceChar = new ImageView(imageKratosStance);
-        kratosStanceChar.setFitWidth(226);
-        kratosStanceChar.setFitHeight(222);
         kratosStanceCharButton = new Button("Kratos", kratosStanceChar);
         kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
