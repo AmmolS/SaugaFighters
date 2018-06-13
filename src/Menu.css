@@ -1,9 +1,5 @@
-.button
+.fontStyle
 {
-    -fx-background-color: transparent;
-}
-
-.button:hover
-{
-    -fx-
+    -fx-font: 30px Tahoma;
+    -fx-stroke: black
 }
