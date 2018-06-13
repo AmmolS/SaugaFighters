@@ -15,8 +15,8 @@ public class Main extends Application
 
     private Scene startMenu,characterSelect;
 
-    private ImageView title, ariesStanceMenu, kratosStanceMenu, ariesStanceChar, kratosStanceChar;
-    private Button start, quit, ariesStanceCharButton, kratosStanceCharButton;
+    private ImageView title, ariesStanceMenu, kratosStanceMenu, ariesStanceChar, kratosStanceChar, charSelectTitle;
+    private Button start, quit, ariesStanceCharButton, kratosStanceCharButton, back;
 
     public static void main(String args[])
     {
@@ -34,8 +34,13 @@ public class Main extends Application
         Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
         Image imageQuit = new Image(getClass().getResourceAsStream("/Assets/Menu/quit.png"));
         Image imageTitle = new Image(getClass().getResourceAsStream("/Assets/Menu/title.png"));
+        Image imageCharSelectTitle = new Image(getClass().getResourceAsStream("/Assets/character_selection.png"));
+        Image imageBack = new Image(getClass().getResourceAsStream("/Assets/back.png"));
+        Image imageArrowLeft = new Image(getClass().getResourceAsStream("/Assets/arrow_left.png"));
+        Image imageArrowRight = new Image(getClass().getResourceAsStream("/Assets/arrow_right.png"));
         Image imageAriesStance = new Image(getClass().getResourceAsStream("/Assets/Aries/AriesStance.gif"));
         Image imageKratosStance = new Image(getClass().getResourceAsStream("/Assets/Kratos/KratosStance.gif"));
+        Image imageCharacterSelect = new Image(getClass().getResourceAsStream("/Assets/character_selection.png"));
 
         // Start Menu
         ImageView backgroundMenu = new ImageView(imageBackground);
@@ -95,6 +100,9 @@ public class Main extends Application
         backgroundChar.setFitHeight(603);
         backgroundChar.setFitWidth(1200);
 
+        charSelectTitle = new ImageView(imageCharSelectTitle);
+        charSelectTitle.setX(100);
+        charSelectTitle.setY(-30);
 
         ariesStanceChar = new ImageView(imageAriesStance);
         ariesStanceCharButton = new Button("Aries", ariesStanceChar);
@@ -120,8 +128,19 @@ public class Main extends Application
         kratosStanceCharButton.setOnMouseEntered(event -> kratosStanceCharButton.setGraphic(new ImageView("/Assets/Kratos/KratosHPunch.gif")));
         kratosStanceCharButton.setOnMouseExited(event -> kratosStanceCharButton.setGraphic(kratosStanceChar));
 
+        back = new Button();
+        back.setGraphic(new ImageView(imageBack));
+        back.setStyle("-fx-background-color: transparent;");
+        back.setOnAction(event -> stage.setScene(startMenu));
+        back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
+        back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
+        back.setLayoutX(0);
+        back.setLayoutY(403);
+
+
+
         Group characterMenuLayout = new Group();
-        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton);
+        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back, charSelectTitle);
         characterSelect = new Scene(characterMenuLayout, 1200, 603);
         characterMenuLayout.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream( "/Assets/cursor.png"))));
 
