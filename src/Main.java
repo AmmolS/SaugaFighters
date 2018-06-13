@@ -8,10 +8,9 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 
-public class Main extends  Application{
+public class Main extends Application {
     @Override
-    public void start(Stage  stage) throws FileNotFoundException
-    {
+    public void start(Stage stage) throws FileNotFoundException {
 
         Image background = new Image("/Assets/Background1.gif");
         ImageView imageView = new ImageView(background);
@@ -26,7 +25,7 @@ public class Main extends  Application{
         Image KratosStance = new Image("/Assets/Kratos/KratosStance.gif");
         Image KratosForward = new Image("/Assets/Kratos/KratosForward.gif");
         Image KratosBackward = new Image("/Assets/Kratos/KratosBackward.gif");
-        Image KratosKick = new Image("/Assets/Kratos/KratosKick.gif");
+        Image KratosKick = new Image("/Assets/Kratos/KratosBackward.gif");
 
         ImageView Kratos = new ImageView();
         Kratos.setFitHeight(300);
@@ -36,8 +35,6 @@ public class Main extends  Application{
         Kratos.setX(300);
         Kratos.setY(300);
         root.getChildren().add(Kratos);
-
-
 
 
         scene.setOnKeyPressed(e ->
@@ -50,8 +47,7 @@ public class Main extends  Application{
                                 Kratos.setLayoutX(Kratos.getLayoutX() - 30);
                             }
 
-                        }
-                        else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
+                        } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
                             Kratos.setImage(KratosBackward);
                             Kratos.setLayoutX(Kratos.getLayoutX() - 10);
                             if (Kratos.getLayoutX() < -100) {
@@ -59,8 +55,9 @@ public class Main extends  Application{
                             }
                         }
 
-                        if (e.getCode() == KeyCode.K)
+                        if (e.getCode() == KeyCode.ENTER)
                         {
+
                         }
 
 

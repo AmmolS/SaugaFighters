@@ -1,3 +1,5 @@
+package Fighters;
+
 public class Fighter
 {
     String name;
@@ -5,6 +7,11 @@ public class Fighter
     double powerBar;
     double movementSpeed;
     double baseDamage;
+
+    Fighter()
+    {
+
+    }
 
     Fighter(String inputName, double inputHealth, double inputPower, double inputMovement, double inputDamage)
     {
