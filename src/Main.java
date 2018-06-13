@@ -5,6 +5,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -16,7 +17,8 @@ public class Main extends Application
     private Scene startMenu,characterSelect;
 
     private ImageView title, ariesStanceMenu, kratosStanceMenu, ariesStanceChar, kratosStanceChar, charSelectTitle;
-    private Button start, quit, ariesStanceCharButton, kratosStanceCharButton, back;
+    private Button start, quit, back;
+    private ToggleButton ariesStanceCharButton, kratosStanceCharButton;
 
     public static void main(String args[])
     {
@@ -105,7 +107,7 @@ public class Main extends Application
         charSelectTitle.setY(-30);
 
         ariesStanceChar = new ImageView(imageAriesStance);
-        ariesStanceCharButton = new Button("Aries", ariesStanceChar);
+        ariesStanceCharButton = new ToggleButton("Aries", ariesStanceChar);
         ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
@@ -115,9 +117,10 @@ public class Main extends Application
         ariesStanceCharButton.setOnAction(event -> System.out.println("a"));
         ariesStanceCharButton.setOnMouseEntered(event -> ariesStanceCharButton.setGraphic(new ImageView("/Assets/Aries/AriesMPunch.gif")));
         ariesStanceCharButton.setOnMouseExited(event -> ariesStanceCharButton.setGraphic(ariesStanceChar));
+        ariesStanceCharButton.setOnAction(event -> stage.setScene(characterSelect));
 
         kratosStanceChar = new ImageView(imageKratosStance);
-        kratosStanceCharButton = new Button("Kratos", kratosStanceChar);
+        kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
         kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
