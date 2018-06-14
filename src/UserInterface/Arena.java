@@ -14,13 +14,10 @@ public class Arena
     Image arenaChoice;
     Scene arena;
 
-    Arena(Stage stage, Fighter p1, Fighter p2, Image aChoice)
+    Arena(Stage stage, Image aChoice)
     {
-        this.player1 = p1;
-        this.player2 = p2;
         this.arenaChoice = aChoice;
-
-        ImageView background = new ImageView(aChoice);
+        ImageView background = new ImageView(this.arenaChoice);
         background.setX(0);
         background.setY(0);
         background.setFitWidth(1200);
@@ -31,6 +28,21 @@ public class Arena
         this.arena = new Scene(arenaLayout, 1200, 603);
 
 
+    }
+
+    public void setPlayer1(Fighter player1)
+    {
+        this.player1 = player1;
+    }
+
+    public void setPlayer2(Fighter player2)
+    {
+        this.player2 = player2;
+    }
+
+    public void setArenaChoice(Image aChoice)
+    {
+        this.arenaChoice = aChoice;
     }
 
     public Scene getArena()

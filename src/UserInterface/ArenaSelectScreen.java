@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 public class ArenaSelectScreen
 {
 
+    Arena arenaSetup;
     Scene arena;
     Image arenaChoice;
 
@@ -83,13 +84,23 @@ public class ArenaSelectScreen
         selectMap.setStyle("-fx-background-color: transparent;");
         selectMap.setOnMouseEntered(event -> selectMap.setGraphic(new ImageView("/Assets/choose_map_hover.png")));
         selectMap.setOnMouseExited(event -> selectMap.setGraphic(new ImageView(imageChooseMap)));
-        selectMap.setOnAction(event -> setArena((BgOption.getImage())));
+        selectMap.setOnAction(event -> {
+            setArena((BgOption.getImage()));
+            arenaSetup = new Arena(stage, BgOption.getImage());
+//            arenaSetup.setArenaChoice(BgOption.getImage());
+            stage.setScene(this.arenaSetup.getArena());
+        });
 
         Group arenaSelectLayout = new Group();
         arenaSelectLayout.getChildren().addAll(background, arenaSelectTitle, BgOption, arrowLeft, arrowRight, selectMap);
         Scene arenaSelect = new Scene(arenaSelectLayout, 1200, 603);
         arenaSelect.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));
         this.arena = arenaSelect;
+    }
+
+    public void setArenaSetup(Arena a)
+    {
+        this.arenaSetup = a;
     }
 
     public Scene getArenaSelectScene()
@@ -105,6 +116,5 @@ public class ArenaSelectScreen
     public Image getArenaChoice()
     {
         return this.arenaChoice;
-
     }
 }
