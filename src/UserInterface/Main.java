@@ -19,7 +19,6 @@ public class Main extends Application
     @Override
     public void start(Stage stage) throws FileNotFoundException
     {
-
         stage.setTitle("Sauga Fighterz");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
@@ -28,9 +27,6 @@ public class Main extends Application
         stage.setScene(Menu.ShowMenu(stage, cs, as));
 //        stage.setScene(arena.getArena());
         stage.show();
-
-
-
 
 
 //        StackPane layout = new StackPane();
