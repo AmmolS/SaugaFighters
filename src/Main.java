@@ -58,6 +58,7 @@ public class Main extends Application
             title.setFitHeight(320);
             title.setFitWidth(1020);
         });
+
         title.setOnMouseExited(event -> {
             title.setFitHeight(300);
             title.setFitWidth(1000);
@@ -154,9 +155,6 @@ public class Main extends Application
 //        layout.getChildren().add(imageView);
 
 //        start.getStylesheets().add(getClass().getResource("Menu.css").toExternalForm());
-
-
-
 
 //        Image KratosStance = new Image("/Assets/Fighters.Kratos/KratosStance.gif");
 //        Image KratosForward = new Image("/Assets/Fighters.Kratos/KratosForward.gif");
