@@ -23,6 +23,7 @@ public class ArenaSelectScreen
         Image imageArrowLeft = new Image("/Assets/leftt.png");
         Image imageArrowRight = new Image("/Assets/right.png");
         Image imageArenaSelect = new Image("/Assets/arena_selection.png");
+        Image imageChooseMap = new Image("/Assets/choose_map.png");
 
         ImageView arenaSelectTitle = new ImageView(imageArenaSelect);
         arenaSelectTitle.setX(200);
@@ -76,9 +77,12 @@ public class ArenaSelectScreen
         arrowRight.setOnMouseEntered(event -> arrowRight.setGraphic(new ImageView("/Assets/right_hover.png")));
         arrowRight.setOnMouseExited(event -> arrowRight.setGraphic(new ImageView(imageArrowRight)));
 
-        Button selectMap = new Button("Choose Map");
-        selectMap.setLayoutX(301.5);
-        selectMap.setLayoutY(503);
+        Button selectMap = new Button("", new ImageView(imageChooseMap));
+        selectMap.setLayoutX(400);
+        selectMap.setLayoutY(403);
+        selectMap.setStyle("-fx-background-color: transparent;");
+        selectMap.setOnMouseEntered(event -> selectMap.setGraphic(new ImageView("/Assets/choose_map_hover.png")));
+        selectMap.setOnMouseExited(event -> selectMap.setGraphic(new ImageView(imageChooseMap)));
         selectMap.setOnAction(event -> setArena((BgOption.getImage())));
 
 
