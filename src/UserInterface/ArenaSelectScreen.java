@@ -85,8 +85,6 @@ public class ArenaSelectScreen
         selectMap.setOnMouseExited(event -> selectMap.setGraphic(new ImageView(imageChooseMap)));
         selectMap.setOnAction(event -> setArena((BgOption.getImage())));
 
-
-
         Group arenaSelectLayout = new Group();
         arenaSelectLayout.getChildren().addAll(background, arenaSelectTitle, BgOption, arrowLeft, arrowRight, selectMap);
         Scene arenaSelect = new Scene(arenaSelectLayout, 1200, 603);
