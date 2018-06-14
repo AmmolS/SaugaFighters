@@ -5,6 +5,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -15,8 +16,9 @@ public class Main extends Application
 
     private Scene startMenu,characterSelect;
 
-    private ImageView title, ariesStanceMenu, kratosStanceMenu, ariesStanceChar, kratosStanceChar;
-    private Button start, quit, ariesStanceCharButton, kratosStanceCharButton;
+    private ImageView title, ariesStanceMenu, kratosStanceMenu, ariesStanceChar, kratosStanceChar, charSelectTitle;
+    private Button start, quit, back;
+    private ToggleButton ariesStanceCharButton, kratosStanceCharButton;
 
     public static void main(String args[])
     {
@@ -34,8 +36,13 @@ public class Main extends Application
         Image imageStart = new Image(getClass().getResourceAsStream("/Assets/Menu/start.png"));
         Image imageQuit = new Image(getClass().getResourceAsStream("/Assets/Menu/quit.png"));
         Image imageTitle = new Image(getClass().getResourceAsStream("/Assets/Menu/title.png"));
+        Image imageCharSelectTitle = new Image(getClass().getResourceAsStream("/Assets/character_selection.png"));
+        Image imageBack = new Image(getClass().getResourceAsStream("/Assets/back.png"));
+        Image imageArrowLeft = new Image(getClass().getResourceAsStream("/Assets/arrow_left.png"));
+        Image imageArrowRight = new Image(getClass().getResourceAsStream("/Assets/arrow_right.png"));
         Image imageAriesStance = new Image(getClass().getResourceAsStream("/Assets/Aries/AriesStance.gif"));
         Image imageKratosStance = new Image(getClass().getResourceAsStream("/Assets/Kratos/KratosStance.gif"));
+        Image imageCharacterSelect = new Image(getClass().getResourceAsStream("/Assets/character_selection.png"));
 
         // Start Menu
         ImageView backgroundMenu = new ImageView(imageBackground);
@@ -95,9 +102,12 @@ public class Main extends Application
         backgroundChar.setFitHeight(603);
         backgroundChar.setFitWidth(1200);
 
+        charSelectTitle = new ImageView(imageCharSelectTitle);
+        charSelectTitle.setX(100);
+        charSelectTitle.setY(-30);
 
         ariesStanceChar = new ImageView(imageAriesStance);
-        ariesStanceCharButton = new Button("Aries", ariesStanceChar);
+        ariesStanceCharButton = new ToggleButton("Aries", ariesStanceChar);
         ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
@@ -107,9 +117,10 @@ public class Main extends Application
         ariesStanceCharButton.setOnAction(event -> System.out.println("a"));
         ariesStanceCharButton.setOnMouseEntered(event -> ariesStanceCharButton.setGraphic(new ImageView("/Assets/Aries/AriesMPunch.gif")));
         ariesStanceCharButton.setOnMouseExited(event -> ariesStanceCharButton.setGraphic(ariesStanceChar));
+        ariesStanceCharButton.setOnAction(event -> stage.setScene(characterSelect));
 
         kratosStanceChar = new ImageView(imageKratosStance);
-        kratosStanceCharButton = new Button("Kratos", kratosStanceChar);
+        kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
         kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font-size: 30px; -fx-text-fill: #FFF000");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
@@ -120,8 +131,19 @@ public class Main extends Application
         kratosStanceCharButton.setOnMouseEntered(event -> kratosStanceCharButton.setGraphic(new ImageView("/Assets/Kratos/KratosHPunch.gif")));
         kratosStanceCharButton.setOnMouseExited(event -> kratosStanceCharButton.setGraphic(kratosStanceChar));
 
+        back = new Button();
+        back.setGraphic(new ImageView(imageBack));
+        back.setStyle("-fx-background-color: transparent;");
+        back.setOnAction(event -> stage.setScene(startMenu));
+        back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
+        back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
+        back.setLayoutX(0);
+        back.setLayoutY(403);
+
+
+
         Group characterMenuLayout = new Group();
-        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton);
+        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back, charSelectTitle);
         characterSelect = new Scene(characterMenuLayout, 1200, 603);
         characterMenuLayout.setCursor(new ImageCursor(new Image(getClass().getResourceAsStream( "/Assets/cursor.png"))));
 
