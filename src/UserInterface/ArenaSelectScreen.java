@@ -34,6 +34,7 @@ public class ArenaSelectScreen
         BgOption.setFitWidth(600);
         BgOption.setX(301.5);
         BgOption.setY(150);
+        BgOption.setStyle("-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 5;");
 
         Button arrowLeft = new Button("", new ImageView(imageArrowLeft));
         arrowLeft.setLayoutX(100);

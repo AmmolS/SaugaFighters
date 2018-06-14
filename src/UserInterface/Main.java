@@ -24,6 +24,7 @@ public class Main extends Application
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         ArenaSelectScreen ac = new ArenaSelectScreen(stage);
         CharacterSelectScreen sc = new CharacterSelectScreen(stage, ac);
+        Arena arena = new Arena(sc.getPlayer1(), sc.getPlayer2(), ac.getArenaChoice());
         stage.setScene(Menu.ShowMenu(stage, sc, ac));
         stage.show();
 
