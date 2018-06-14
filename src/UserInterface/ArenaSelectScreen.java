@@ -105,5 +105,6 @@ public class ArenaSelectScreen
     public Image getArenaChoice()
     {
         return this.arenaChoice;
+
     }
 }
