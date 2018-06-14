@@ -22,10 +22,10 @@ public class Main extends Application
 
         stage.setTitle("Sauga Fighters");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
-        ArenaSelectScreen ac = new ArenaSelectScreen(stage);
-        CharacterSelectScreen sc = new CharacterSelectScreen(stage, ac);
-        Arena arena = new Arena(sc.getPlayer1(), sc.getPlayer2(), ac.getArenaChoice());
-        stage.setScene(Menu.ShowMenu(stage, sc, ac));
+        ArenaSelectScreen as = new ArenaSelectScreen(stage);
+        CharacterSelectScreen cs = new CharacterSelectScreen(stage, as);
+        Arena arena = new Arena(cs.getPlayer1(), cs.getPlayer2(), as.getArenaChoice());
+        stage.setScene(Menu.ShowMenu(stage, cs, as));
         stage.show();
 
 
