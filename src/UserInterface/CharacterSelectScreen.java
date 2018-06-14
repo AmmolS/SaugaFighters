@@ -23,7 +23,7 @@ public class CharacterSelectScreen
     private String player1Char = "";
     private String player2Char = "";
 
-    public CharacterSelectScreen(Stage stage)
+    public CharacterSelectScreen(Stage stage, ArenaSelectScreen ac)
     {
 
         // Initialize Required Images
@@ -50,7 +50,7 @@ public class CharacterSelectScreen
         Button confirm = new Button("Confirm");
         confirm.setLayoutX(1050);
         confirm.setLayoutY(553);
-        confirm.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this)));
+        confirm.setOnAction(event -> stage.setScene(ac.getArenaSelectScene()));
         confirm.setVisible(false);
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
@@ -141,7 +141,7 @@ public class CharacterSelectScreen
         Button back = new Button();
         back.setGraphic(new ImageView(imageBack));
         back.setStyle("-fx-background-color: transparent;");
-        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this)));
+        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this, ac)));
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);
@@ -154,7 +154,7 @@ public class CharacterSelectScreen
         this.sc = characterSelect;
     }
 
-    public Scene getSc ()
+    public Scene getCharSelectScene ()
     {
         return this.sc;
     }

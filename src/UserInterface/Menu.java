@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Menu
 {
 
-    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc)
+    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc, ArenaSelectScreen ac)
     {
         // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
@@ -43,7 +43,7 @@ public class Menu
         Button start = new Button();
         start.setGraphic(new ImageView(imageStart));
         start.setStyle("-fx-background-color: transparent; ");
-        start.setOnAction(event -> stage.setScene(sc.getSc()));
+        start.setOnAction(event -> stage.setScene(sc.getCharSelectScene()));
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart)));
         start.setLayoutX(525);
