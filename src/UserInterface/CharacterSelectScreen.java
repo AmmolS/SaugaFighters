@@ -30,6 +30,7 @@ public class CharacterSelectScreen
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
         Image imageCharSelectTitle = new Image("/Assets/character_selection.png");
         Image imageBack = new Image("/Assets/back.png");
+        Image imageConfirm = new Image("/Assets/confirm.png");
         Image imageArrowLeft = new Image("/Assets/arrow_left.png");
         Image imageArrowRight = new Image("/Assets/arrow_right.png");
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
@@ -47,15 +48,18 @@ public class CharacterSelectScreen
         charSelectTitle.setX(100);
         charSelectTitle.setY(-30);
 
-        Button confirm = new Button("Confirm");
-        confirm.setLayoutX(1050);
-        confirm.setLayoutY(553);
+        Button confirm = new Button("", new ImageView(imageConfirm));
+        confirm.setLayoutX(780);
+        confirm.setLayoutY(403);
+        confirm.setStyle("-fx-background-color: transparent;");
+        confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
+        confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
         confirm.setOnAction(event -> stage.setScene(ac.getArenaSelectScene()));
         confirm.setVisible(false);
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
         ToggleButton ariesStanceCharButton = new ToggleButton("Aries", ariesStanceChar);
-        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #00FF00; -fx-font-weight: bold;");
+        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
         ariesStanceCharButton.setLayoutY(100);
@@ -97,7 +101,7 @@ public class CharacterSelectScreen
 
         ImageView kratosStanceChar = new ImageView(imageKratosStance);
         ToggleButton kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
-        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #00FF00; -fx-font-weight: bold;");
+        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
         kratosStanceCharButton.setLayoutY(100);

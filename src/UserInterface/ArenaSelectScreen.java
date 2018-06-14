@@ -22,6 +22,11 @@ public class ArenaSelectScreen
         Image imageBgOption2 = new Image("/Assets/Background2.gif");
         Image imageArrowLeft = new Image("/Assets/leftt.png");
         Image imageArrowRight = new Image("/Assets/right.png");
+        Image imageArenaSelect = new Image("/Assets/arena_selection.png");
+
+        ImageView arenaSelectTitle = new ImageView(imageArenaSelect);
+        arenaSelectTitle.setX(200);
+        arenaSelectTitle.setY(-25);
 
         ImageView background = new ImageView(imageBackground);
         background.setX(0);
@@ -79,7 +84,7 @@ public class ArenaSelectScreen
 
 
         Group arenaSelectLayout = new Group();
-        arenaSelectLayout.getChildren().addAll(background, BgOption, arrowLeft, arrowRight, selectMap);
+        arenaSelectLayout.getChildren().addAll(background, arenaSelectTitle, BgOption, arrowLeft, arrowRight, selectMap);
         Scene arenaSelect = new Scene(arenaSelectLayout, 1200, 603);
         arenaSelect.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));
         this.arena = arenaSelect;
