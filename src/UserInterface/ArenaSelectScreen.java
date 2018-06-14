@@ -57,6 +57,9 @@ public class ArenaSelectScreen
                 arrowRight.setVisible(true);
             }
         } );
+        arrowLeft.setOnMouseEntered(event -> arrowLeft.setGraphic(new ImageView("/Assets/arrow_left_hover.png")));
+        arrowLeft.setOnMouseExited(event -> arrowLeft.setGraphic(new ImageView(imageArrowLeft)));
+
         arrowRight.setOnAction(event ->
         {
             if(BgOption.getImage() == imageBgOption1)
@@ -65,6 +68,8 @@ public class ArenaSelectScreen
                 arrowRight.setVisible(false);
             }
         });
+        arrowRight.setOnMouseEntered(event -> arrowRight.setGraphic(new ImageView("/Assets/arrow_right_hover.png")));
+        arrowRight.setOnMouseExited(event -> arrowRight.setGraphic(new ImageView(imageArrowRight)));
 
         Button selectMap = new Button("Choose Map");
         selectMap.setLayoutX(301.5);
