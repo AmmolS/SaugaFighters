@@ -20,7 +20,7 @@ public class Main extends Application
     public void start(Stage stage) throws FileNotFoundException
     {
 
-        stage.setTitle("Sauga Fighters");
+        stage.setTitle("Sauga Fighterz");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
         CharacterSelectScreen cs = new CharacterSelectScreen(stage, as);
