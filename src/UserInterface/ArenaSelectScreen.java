@@ -20,8 +20,8 @@ public class ArenaSelectScreen
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
         Image imageBgOption1 = new Image("/Assets/Background1.gif");
         Image imageBgOption2 = new Image("/Assets/Background2.gif");
-        Image imageArrowLeft = new Image("/Assets/arrow_left.png");
-        Image imageArrowRight = new Image("/Assets/arrow_right.png");
+        Image imageArrowLeft = new Image("/Assets/leftt.png");
+        Image imageArrowRight = new Image("/Assets/right.png");
 
         ImageView background = new ImageView(imageBackground);
         background.setX(0);
@@ -38,12 +38,12 @@ public class ArenaSelectScreen
 
         Button arrowLeft = new Button("", new ImageView(imageArrowLeft));
         arrowLeft.setLayoutX(100);
-        arrowLeft.setLayoutY(251.5);
+        arrowLeft.setLayoutY(151.5+35);
         arrowLeft.setStyle("-fx-background-color: transparent;");
 
         Button arrowRight = new Button("", new ImageView(imageArrowRight));
-        arrowRight.setLayoutX(1000);
-        arrowRight.setLayoutY(251.5);
+        arrowRight.setLayoutX(900);
+        arrowRight.setLayoutY(151.5+35);
         arrowRight.setStyle("-fx-background-color: transparent;");
 
         arrowLeft.setOnAction(event -> {
@@ -57,6 +57,9 @@ public class ArenaSelectScreen
                 arrowRight.setVisible(true);
             }
         } );
+        arrowLeft.setOnMouseEntered(event -> arrowLeft.setGraphic(new ImageView("/Assets/left_hover.png")));
+        arrowLeft.setOnMouseExited(event -> arrowLeft.setGraphic(new ImageView(imageArrowLeft)));
+
         arrowRight.setOnAction(event ->
         {
             if(BgOption.getImage() == imageBgOption1)
@@ -65,6 +68,8 @@ public class ArenaSelectScreen
                 arrowRight.setVisible(false);
             }
         });
+        arrowRight.setOnMouseEntered(event -> arrowRight.setGraphic(new ImageView("/Assets/right_hover.png")));
+        arrowRight.setOnMouseExited(event -> arrowRight.setGraphic(new ImageView(imageArrowRight)));
 
         Button selectMap = new Button("Choose Map");
         selectMap.setLayoutX(301.5);

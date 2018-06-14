@@ -55,7 +55,7 @@ public class CharacterSelectScreen
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
         ToggleButton ariesStanceCharButton = new ToggleButton("Aries", ariesStanceChar);
-        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFF000; -fx-font-weight: bold;");
+        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #00FF00; -fx-font-weight: bold;");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
         ariesStanceCharButton.setLayoutY(100);
@@ -97,7 +97,7 @@ public class CharacterSelectScreen
 
         ImageView kratosStanceChar = new ImageView(imageKratosStance);
         ToggleButton kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
-        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFF000; -fx-font-weight: bold;");
+        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #00FF00; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
         kratosStanceCharButton.setLayoutY(100);
