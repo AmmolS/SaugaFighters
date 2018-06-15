@@ -24,6 +24,8 @@ public class CharacterSelectScreen
     private String player1Char = "";
     private String player2Char = "";
 
+    private Arena arena;
+
     public CharacterSelectScreen(Stage stage)
     {
 
@@ -55,7 +57,11 @@ public class CharacterSelectScreen
         confirm.setStyle("-fx-background-color: transparent;");
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
-        confirm.setOnAction(event -> stage.setScene(arenaInfo.getArenaSelectScene()));
+        confirm.setOnAction(event -> {
+            arena.setPlayer1(this.player1);
+            arena.setPlayer2(this.player2);
+            stage.setScene(this.arenaInfo.getArenaSelectScene());
+        });
         confirm.setVisible(false);
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
@@ -102,7 +108,7 @@ public class CharacterSelectScreen
 
         ImageView kratosStanceChar = new ImageView(imageKratosStance);
         ToggleButton kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
-        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
+        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF  ; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
         kratosStanceCharButton.setLayoutY(100);
@@ -194,8 +200,13 @@ public class CharacterSelectScreen
         return player2;
     }
 
-    public void setArenaInfo(ArenaSelectScreen ac)
+    public void setArenaSelect(ArenaSelectScreen ac)
     {
         this.arenaInfo = ac;
+    }
+
+    public void setArena(Arena arena)
+    {
+        this.arena = arena;
     }
 }

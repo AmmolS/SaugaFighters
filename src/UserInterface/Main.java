@@ -2,7 +2,6 @@ package UserInterface;
 
 import java.io.FileNotFoundException;
 
-import Fighters.Fighter;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -24,9 +23,11 @@ public class Main extends Application
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
         CharacterSelectScreen cs = new CharacterSelectScreen(stage);
-        cs.setArenaInfo(as);
-//        Arena arena = new Arena(stage);
-//        as.setArenaSetup(arena);
+        Arena arena = new Arena(stage);
+
+        cs.setArenaSelect(as);
+        cs.setArena(arena);
+        as.setArenaSetup(arena);
         stage.setScene(Menu.ShowMenu(stage, cs));
         stage.show();
 

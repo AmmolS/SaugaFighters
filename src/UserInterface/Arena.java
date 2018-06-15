@@ -9,22 +9,18 @@ import javafx.stage.Stage;
 
 public class Arena
 {
-    Fighter player1;
-    Fighter player2;
-    Image arenaChoice;
-    Scene arena;
+    private Fighter player1;
+    private Fighter player2;
+    private Image arenaChoice;
+    private Scene arena;
+    private ImageView background;
+    private Group arenaLayout;
 
-    Arena(Stage stage, Image aChoice)
+    Arena(Stage stage)
     {
-        this.arenaChoice = aChoice;
-        ImageView background = new ImageView(this.arenaChoice);
-        background.setX(0);
-        background.setY(0);
-        background.setFitWidth(1200);
-        background.setFitHeight(603);
 
-        Group arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(background);
+        arenaLayout = new Group();
+        arenaLayout.getChildren().addAll();
         this.arena = new Scene(arenaLayout, 1200, 603);
 
 
@@ -43,6 +39,12 @@ public class Arena
     public void setArenaChoice(Image aChoice)
     {
         this.arenaChoice = aChoice;
+        this.background = new ImageView(this.arenaChoice);
+        this.background.setX(0);
+        this.background.setY(0);
+        this.background.setFitWidth(1200);
+        this.background.setFitHeight(603);
+        arenaLayout.getChildren().add(this.background);
     }
 
     public Scene getArena()

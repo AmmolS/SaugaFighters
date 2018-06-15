@@ -11,9 +11,9 @@ import javafx.scene.control.Button;
 public class ArenaSelectScreen
 {
 
-    Arena arenaSetup;
-    Scene arena;
-    Image arenaChoice;
+    private Arena arenaSetup;
+    private Scene arena;
+    private Image arenaChoice;
 
     public ArenaSelectScreen(Stage stage)
     {
@@ -86,8 +86,7 @@ public class ArenaSelectScreen
         selectMap.setOnMouseExited(event -> selectMap.setGraphic(new ImageView(imageChooseMap)));
         selectMap.setOnAction(event -> {
             setArena((BgOption.getImage()));
-            arenaSetup = new Arena(stage, BgOption.getImage());
-//            arenaSetup.setArenaChoice(BgOption.getImage());
+            arenaSetup.setArenaChoice(BgOption.getImage());
             stage.setScene(this.arenaSetup.getArena());
         });
 
