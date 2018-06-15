@@ -28,9 +28,9 @@ public class Arena
         p1.setX(100);
         p1.setY(303);
 
-//        ImageView p2 = new ImageView(this.player2.getImageFighterStanceR());
-//        p2.setX(1000);
-//        p2.setY(203);
+        ImageView p2 = new ImageView(this.player2.getImageFighterStanceR());
+        p2.setX(1000);
+        p2.setY(203);
 
         arenaLayout = new Group();
         arenaLayout.getChildren().addAll(this.background, p1);
