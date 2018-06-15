@@ -9,8 +9,7 @@ import javafx.stage.Stage;
 
 public class Arena
 {
-    private Fighter player1;
-    private Fighter player2;
+    private Fighter player1, player2;
     private Image arenaChoice;
     private Scene arena;
     private ImageView background;
@@ -29,11 +28,11 @@ public class Arena
         p1.setY(303);
 
         ImageView p2 = new ImageView(this.player2.getImageFighterStanceR());
-        p2.setX(1000);
-        p2.setY(203);
+        p2.setX(900);
+        p2.setY(303);
 
         arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(this.background, p1);
+        arenaLayout.getChildren().addAll(this.background, p1, p2);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
 
