@@ -31,8 +31,7 @@ public class Main extends Application
         stage.setScene(Menu.ShowMenu(stage, cs));
         stage.show();
 
-
-//        StackPane layout = new StackPane();
+        //        StackPane layout = new StackPane();
 //        layout.getChildren().add(start);
 //        layout.getChildren().add(imageView);
 

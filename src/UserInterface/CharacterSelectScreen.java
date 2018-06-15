@@ -181,7 +181,7 @@ public class CharacterSelectScreen
         {
             this.player2 = new Kratos();
         }
-        else if(p1.equals("Aries"))
+        if(p1.equals("Aries"))
         {
             this.player1 = new Aries();
         }
