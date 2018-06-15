@@ -58,6 +58,7 @@ public class CharacterSelectScreen
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
         confirm.setOnAction(event -> {
+            setCharacter(this.player1Char, this.player2Char);
             arena.setPlayer1(this.player1);
             arena.setPlayer2(this.player2);
             stage.setScene(this.arenaInfo.getArenaSelectScene());
@@ -174,19 +175,19 @@ public class CharacterSelectScreen
     {
         if(p1.equals("Kratos"))
         {
-            player1 = new Kratos();
+            this.player1 = new Kratos();
         }
         else if(p2.equals("Kratos"))
         {
-            player2 = new Kratos();
+            this.player2 = new Kratos();
         }
         else if(p1.equals("Aries"))
         {
-            player1 = new Aries();
+            this.player1 = new Aries();
         }
         else if(p2.equals("Aries"))
         {
-            player2 = new Aries();
+            this.player2 = new Aries();
         }
     }
 

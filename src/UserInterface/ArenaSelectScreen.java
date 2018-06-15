@@ -87,7 +87,9 @@ public class ArenaSelectScreen
         selectMap.setOnAction(event -> {
             setArena((BgOption.getImage()));
             arenaSetup.setArenaChoice(BgOption.getImage());
+            arenaSetup.play(stage);
             stage.setScene(this.arenaSetup.getArena());
+
         });
 
         Group arenaSelectLayout = new Group();

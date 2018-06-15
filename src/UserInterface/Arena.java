@@ -16,11 +16,24 @@ public class Arena
     private ImageView background;
     private Group arenaLayout;
 
-    Arena(Stage stage)
+    public void play(Stage stage)
     {
+        this.background = new ImageView(this.arenaChoice);
+        this.background.setX(0);
+        this.background.setY(0);
+        this.background.setFitWidth(1200);
+        this.background.setFitHeight(603);
+
+        ImageView p1 = new ImageView(this.player1.getImageFighterStanceL());
+        p1.setX(100);
+        p1.setY(303);
+
+//        ImageView p2 = new ImageView(this.player2.getImageFighterStanceR());
+//        p2.setX(1000);
+//        p2.setY(203);
 
         arenaLayout = new Group();
-        arenaLayout.getChildren().addAll();
+        arenaLayout.getChildren().addAll(this.background, p1);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
 
@@ -39,12 +52,6 @@ public class Arena
     public void setArenaChoice(Image aChoice)
     {
         this.arenaChoice = aChoice;
-        this.background = new ImageView(this.arenaChoice);
-        this.background.setX(0);
-        this.background.setY(0);
-        this.background.setFitWidth(1200);
-        this.background.setFitHeight(603);
-        arenaLayout.getChildren().add(this.background);
     }
 
     public Scene getArena()
