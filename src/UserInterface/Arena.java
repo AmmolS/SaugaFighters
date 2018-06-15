@@ -9,28 +9,49 @@ import javafx.stage.Stage;
 
 public class Arena
 {
-    Fighter player1;
-    Fighter player2;
-    Image arenaChoice;
-    Scene arena;
+    private Fighter player1;
+    private Fighter player2;
+    private Image arenaChoice;
+    private Scene arena;
+    private ImageView background;
+    private Group arenaLayout;
 
-    Arena(Stage stage, Fighter p1, Fighter p2, Image aChoice)
+    public void play(Stage stage)
     {
-        this.player1 = p1;
-        this.player2 = p2;
-        this.arenaChoice = aChoice;
+        this.background = new ImageView(this.arenaChoice);
+        this.background.setX(0);
+        this.background.setY(0);
+        this.background.setFitWidth(1200);
+        this.background.setFitHeight(603);
 
-        ImageView background = new ImageView(aChoice);
-        background.setX(0);
-        background.setY(0);
-        background.setFitWidth(1200);
-        background.setFitHeight(603);
+        ImageView p1 = new ImageView(this.player1.getImageFighterStanceL());
+        p1.setX(100);
+        p1.setY(303);
 
-        Group arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(background);
+//        ImageView p2 = new ImageView(this.player2.getImageFighterStanceR());
+//        p2.setX(1000);
+//        p2.setY(203);
+
+        arenaLayout = new Group();
+        arenaLayout.getChildren().addAll(this.background, p1);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
 
+    }
+
+    public void setPlayer1(Fighter player1)
+    {
+        this.player1 = player1;
+    }
+
+    public void setPlayer2(Fighter player2)
+    {
+        this.player2 = player2;
+    }
+
+    public void setArenaChoice(Image aChoice)
+    {
+        this.arenaChoice = aChoice;
     }
 
     public Scene getArena()

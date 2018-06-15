@@ -17,13 +17,16 @@ public class CharacterSelectScreen
 {
     private Scene sc;
 
-    private Fighter player1;
-    private Fighter player2;
+    private ArenaSelectScreen arenaInfo;
+
+    private Fighter player1, player2;
 
     private String player1Char = "";
     private String player2Char = "";
 
-    public CharacterSelectScreen(Stage stage, ArenaSelectScreen ac)
+    private Arena arena;
+
+    public CharacterSelectScreen(Stage stage)
     {
 
         // Initialize Required Images
@@ -54,7 +57,12 @@ public class CharacterSelectScreen
         confirm.setStyle("-fx-background-color: transparent;");
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
-        confirm.setOnAction(event -> stage.setScene(ac.getArenaSelectScene()));
+        confirm.setOnAction(event -> {
+            setCharacter(this.player1Char, this.player2Char);
+            arena.setPlayer1(this.player1);
+            arena.setPlayer2(this.player2);
+            stage.setScene(this.arenaInfo.getArenaSelectScene());
+        });
         confirm.setVisible(false);
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
@@ -101,7 +109,7 @@ public class CharacterSelectScreen
 
         ImageView kratosStanceChar = new ImageView(imageKratosStance);
         ToggleButton kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
-        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
+        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF  ; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
         kratosStanceCharButton.setLayoutY(100);
@@ -145,7 +153,7 @@ public class CharacterSelectScreen
         Button back = new Button();
         back.setGraphic(new ImageView(imageBack));
         back.setStyle("-fx-background-color: transparent;");
-        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this, ac)));
+        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this)));
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);
@@ -167,19 +175,19 @@ public class CharacterSelectScreen
     {
         if(p1.equals("Kratos"))
         {
-            player1 = new Kratos();
+            this.player1 = new Kratos();
         }
         else if(p2.equals("Kratos"))
         {
-            player2 = new Kratos();
+            this.player2 = new Kratos();
         }
         else if(p1.equals("Aries"))
         {
-            player1 = new Aries();
+            this.player1 = new Aries();
         }
         else if(p2.equals("Aries"))
         {
-            player2 = new Aries();
+            this.player2 = new Aries();
         }
     }
 
@@ -191,5 +199,15 @@ public class CharacterSelectScreen
     public Fighter getPlayer2()
     {
         return player2;
+    }
+
+    public void setArenaSelect(ArenaSelectScreen ac)
+    {
+        this.arenaInfo = ac;
+    }
+
+    public void setArena(Arena arena)
+    {
+        this.arena = arena;
     }
 }

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Menu
 {
 
-    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc, ArenaSelectScreen ac)
+    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc)
     {
         // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");

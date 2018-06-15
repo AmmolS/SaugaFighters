@@ -2,7 +2,6 @@ package UserInterface;
 
 import java.io.FileNotFoundException;
 
-import Fighters.Fighter;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -13,6 +12,7 @@ public class Main extends Application
 
     public static void main(String args[])
     {
+        System.out.println();
         launch(args);
     }
 
@@ -22,10 +22,13 @@ public class Main extends Application
         stage.setTitle("Sauga Fighterz");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
-        CharacterSelectScreen cs = new CharacterSelectScreen(stage, as);
-        Arena arena = new Arena(stage, cs.getPlayer1(), cs.getPlayer2(), as.getArenaChoice());
-        stage.setScene(Menu.ShowMenu(stage, cs, as));
-//        stage.setScene(arena.getArena());
+        CharacterSelectScreen cs = new CharacterSelectScreen(stage);
+        Arena arena = new Arena();
+
+        cs.setArenaSelect(as);
+        cs.setArena(arena);
+        as.setArenaSetup(arena);
+        stage.setScene(Menu.ShowMenu(stage, cs));
         stage.show();
 
 
