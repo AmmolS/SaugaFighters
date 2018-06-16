@@ -12,7 +12,6 @@ public class Main extends Application
 
     public static void main(String args[])
     {
-        System.out.println();
         launch(args);
     }
 
@@ -25,6 +24,7 @@ public class Main extends Application
         CharacterSelectScreen cs = new CharacterSelectScreen(stage);
         Arena arena = new Arena();
 
+
         cs.setArenaSelect(as);
         cs.setArena(arena);
         as.setArenaSetup(arena);
@@ -36,9 +36,6 @@ public class Main extends Application
 //        layout.getChildren().add(imageView);
 
 //        start.getStylesheets().add(getClass().getResource("UserInterface.Menu.css").toExternalForm());
-
-
-
 
 //        Image KratosStance = new Image("/Assets/Fighters.Kratos/KratosStance.gif");
 //        Image KratosForward = new Image("/Assets/Fighters.Kratos/KratosForward.gif");
@@ -54,18 +51,13 @@ public class Main extends Application
 //        Fighters.Kratos.setY(300);
 //        root.getChildren().add(Fighters.Kratos);
 //
-//
-//        scene.setOnKeyPressed(e ->
-//                {
-//
+//        scene.setOnKeyPressed(e -> {
 //                        if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
 //                            Fighters.Kratos.setImage(KratosForward);
 //                            Fighters.Kratos.setLayoutX(Fighters.Kratos.getLayoutX() + 30);
 //                            if (Fighters.Kratos.getLayoutX() > 350) {
-//                                Fighters.Kratos.setLayoutX(Fighters.Kratos.getLayoutX() - 30);
-//                            }
-//
-//                        } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
+//                                Fighters.Kratos.setLayoutX(Fighters.Kratos.getLayoutX() - 30);}}
+//                                 else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
 //                            Fighters.Kratos.setImage(KratosBackward);
 //                            Fighters.Kratos.setLayoutX(Fighters.Kratos.getLayoutX() - 10);
 //                            if (Fighters.Kratos.getLayoutX() < -100) {

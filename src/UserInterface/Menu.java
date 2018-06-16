@@ -16,6 +16,7 @@ public class Menu
         // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
         Image imageStart = new Image("/Assets/Menu/start.png");
+        Image imageHelp = new Image("/Assets/Menu/help.png");
         Image imageQuit = new Image("/Assets/Menu/quit.png");
         Image imageTitle = new Image("/Assets/Menu/title.png");
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
@@ -49,6 +50,15 @@ public class Menu
         start.setLayoutX(525);
         start.setLayoutY(300);
 
+        Button help = new Button();
+        help.setGraphic(new ImageView(imageHelp));
+        help.setStyle("-fx-background-color: transparent; ");
+        help.setOnAction(event -> stage.setScene(sc.getCharSelectScene()));
+        help.setOnMouseEntered(event -> help.setGraphic(new ImageView("/Assets/Menu/help_hover.png")));
+        help.setOnMouseExited(event -> help.setGraphic(new ImageView(imageHelp)));
+        help.setLayoutX(465);
+        help.setLayoutY(375);
+
         Button quit = new Button();
         quit.setGraphic(new ImageView(imageQuit));
         quit.setStyle("-fx-background-color: transparent; ");
@@ -56,11 +66,15 @@ public class Menu
         quit.setOnMouseEntered(event -> quit.setGraphic(new ImageView("/Assets/Menu/quit_hover.png")));
         quit.setOnMouseExited(event -> quit.setGraphic(new ImageView(imageQuit)));
         quit.setLayoutX(465);
-        quit.setLayoutY(375);
+        quit.setLayoutY(450);
 
         ImageView ariesStanceMenu = new ImageView(imageAriesStance);
         ariesStanceMenu.setX(200);
         ariesStanceMenu.setY(325);
+
+        ImageView kratosStanceMenu = new ImageView(imageKratosStance);
+        kratosStanceMenu.setX(600);
+        kratosStanceMenu.setY(325);
 
         Group startMenuLayout = new Group();
         startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, ariesStanceMenu);
