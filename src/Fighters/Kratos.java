@@ -11,10 +11,12 @@ public class Kratos extends Fighter
     private Image imageKratosBackwardL = new Image("/Assets/Kratos/KratosBackward.gif");
     private Image imageKratosBackwardR = new Image("/Assets/Kratos/KratosBackwardRight.gif");
     private Image imageKratosPunchL = new Image("/Assets/Kratos/KratosHPunch.gif");
-    private Image imageKratosPunchR = new Image("/Assets/Kratos/KratosPunchRight.gif");
+    private Image imageKratosPunchR = new Image("/Assets/Kratos/KratosHPunchR.gif");
+    private Image imageKratosJumpL = new Image("/Assets/Kratos/KratosJump.gif");
+    private Image imageKratosJumpR = new Image("/Assets/Kratos/KratosJumpR.gif");
 
     public Kratos()
     {
-        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR, imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR);
+        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR, imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL, imageKratosJumpR);
     }
 }
