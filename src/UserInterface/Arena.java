@@ -57,7 +57,7 @@ public class Arena
 
                     if (e.getCode() == KeyCode.LEFT)
                     {
-                        p2.setImage(player2.getImageFighterBackwardR());
+                        p2.setImage(player2.getImageFighterForwardR());
                         p2.setLayoutX(p2.getLayoutX() - 30);
                         if (p2.getLayoutX() < -1000) {
                             p2.setLayoutX(p2.getLayoutX() + 30);
@@ -66,7 +66,7 @@ public class Arena
 
                     else if (e.getCode() == KeyCode.RIGHT)
                     {
-                        p2.setImage(player2.getImageFighterForwardR());
+                        p2.setImage(player2.getImageFighterBackwardR());
                         p2.setLayoutX(p2.getLayoutX() + 10);
                         if (p2.getLayoutX() > 100) {
                             p2.setLayoutX(p2.getLayoutX() - 10);
@@ -77,9 +77,6 @@ public class Arena
                         {
 
                         }
-                    if (p1.getX() > p2.getX()){
-
-                    }
 
                 }
         );
