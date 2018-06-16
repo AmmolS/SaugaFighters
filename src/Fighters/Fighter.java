@@ -94,24 +94,10 @@ public class Fighter
         return this.health;
     }
 
-    public void Health(){
-        Rectangle health_bar_left = new Rectangle(400, 200, Color.RED);
-        Rectangle health_bar_right = new Rectangle(400, 200, Color.RED);
-
-        health_bar_left.setX(0);
-        health_bar_left.setY(0);
-
-        health_bar_right.setX(1200);
-        health_bar_right.setY(0);
-
-        Circle center = new Circle(20, Color.BLUE);
-
-        center.setCenterX(600);
-        center.setCenterY(0);
-
-        /*
-        Enter collision detection here
-         */
-
+    public Rectangle getHealthBar()
+    {
+        Rectangle health_bar = new Rectangle(this.health, 20, Color.RED);
+        return health_bar;
     }
+
 }

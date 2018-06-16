@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class Arena
@@ -19,6 +22,9 @@ public class Arena
     private Scene arena;
     private ImageView background;
     private Group arenaLayout;
+
+    private Rectangle p1HealthBar;
+    private Rectangle p2HealthBar;
 
     private BooleanProperty dPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
@@ -54,14 +60,26 @@ public class Arena
         p2.setX(900);
         p2.setY(303);
 
+        p1HealthBar = player1.getHealthBar();
+        p1HealthBar.setX(0);
+        p1HealthBar.setY(0);
+
+        p2HealthBar = player2.getHealthBar();
+        p2HealthBar.setX(800);
+        p2HealthBar.setY(0);
+
+        Circle center = new Circle(20, Color.BLUE);
+
+        center.setCenterX(600);
+        center.setCenterY(0);
+
         arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(this.background, p1, p2);
+        arenaLayout.getChildren().addAll(this.background, p1, p2, p1HealthBar, p2HealthBar);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
         arena.setOnKeyPressed(e ->
         {
             // Player 1
-
             // Player 1 moves right
             if(e.getCode() == KeyCode.D)
             {
@@ -128,7 +146,7 @@ public class Arena
             // Player 2 kicks
             if(e.getCode() == KeyCode.CONTROL)
             {
-
+                rightControlPressed.set(true);
             }
 
 
@@ -146,6 +164,16 @@ public class Arena
             if(e.getCode() == KeyCode.A)
             {
                 aPressed.set(false);
+            }
+
+            if(e.getCode() == KeyCode.W)
+            {
+                wPressed.set(false);
+            }
+
+            if(e.getCode() == KeyCode.S)
+            {
+
             }
 
             if(e.getCode() == KeyCode.LEFT)
