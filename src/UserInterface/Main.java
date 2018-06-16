@@ -12,7 +12,6 @@ public class Main extends Application
 
     public static void main(String args[])
     {
-        System.out.println();
         launch(args);
     }
 
@@ -31,11 +30,6 @@ public class Main extends Application
         stage.setScene(Menu.ShowMenu(stage, cs));
         stage.show();
 
-        //        StackPane layout = new StackPane();
-//        layout.getChildren().add(start);
-//        layout.getChildren().add(imageView);
-
-//        start.getStylesheets().add(getClass().getResource("UserInterface.Menu.css").toExternalForm());
 
 
 

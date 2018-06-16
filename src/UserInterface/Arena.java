@@ -15,7 +15,6 @@ public class Arena
     private Scene arena;
     private ImageView background;
     private Group arenaLayout;
-    private Boolean pressAttack = true;
 
     public void play(Stage stage)
     {
@@ -56,29 +55,25 @@ public class Arena
                                 p1.setLayoutX(p1.getLayoutX() + 10);
                             }
                         }
-                        if (e.getCode() == KeyCode.F && this.pressAttack)
+                        if (e.getCode() == KeyCode.F )
                         {
-                            p1.setImage(new Image("/Assets/Aries/AriesMPunch.gif"));
-                            this.pressAttack = false;
+                            p1.setImage(player1.getImageFighterPunchL());
                             if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
                             {
                                 player2.takeDamage(20);
+                                System.out.println(player2.getHealth());
                             }
-                        }
-                        else if(e.getCode() == KeyCode.S)
-                        {
-                            p1.setImage(player1.getImageFighterStanceL());
                         }
 
-                        if (e.getCode() == KeyCode.F && this.pressAttack)
-                        {
-                            p1.setImage(new Image("/Assets/Aries/AriesMPunch.gif"));
-                            this.pressAttack = false;
-                            if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
-                            {
-                                player2.takeDamage(20);
-                            }
-                        }
+//                        if (e.getCode() == KeyCode.F && this.pressAttack)
+//                        {
+//                            p1.setImage(new Image("/Assets/Aries/AriesMPunch.gif"));
+//                            this.pressAttack = true;
+//                            if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
+//                            {
+//                                player2.takeDamage(20);
+//                            }
+//                        }
                         else if(e.getCode() == KeyCode.S)
                         {
                             p1.setImage(player1.getImageFighterStanceL());
@@ -119,7 +114,6 @@ public class Arena
         arena.setOnKeyReleased(event -> {
             p1.setImage(player1.getImageFighterStanceL());
             p2.setImage(player2.getImageFighterStanceR());
-            this.pressAttack = true;
         });
 
 

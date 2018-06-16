@@ -10,7 +10,7 @@ public class Aries extends Fighter
     private Image imageAriesForwardR = new Image("/Assets/Aries/AriesForwardRight.gif");
     private Image imageAriesBackwardL = new Image("/Assets/Aries/AriesBackward.gif");
     private Image imageAriesBackwardR = new Image("/Assets/Aries/AriesBackwardR.gif");
-    private Image imageAriesPunchL = new Image("/Assets/Aries/AriesPunchL.gif");
+    private Image imageAriesPunchL = new Image("/Assets/Aries/AriesMPunch.gif");
     private Image imageAriesPunchR = new Image("/Assets/Aries/AriesPunchR.gif");
 
     public Aries()
