@@ -277,6 +277,12 @@ public class Arena
         {
             if(sPressed.get())
             {
+                if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
+                            {
+                                player2.takeDamage(20);
+                                p2HealthBar.setWidth(player2.getHealth());
+                                p2HealthBar.setX(p2HealthBar.getX() + 20);
+                            }
                 timer.start();
             }
             else if(!sPressed.get())
@@ -338,6 +344,11 @@ public class Arena
         {
             if(downPressed.get())
             {
+                if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
+                            {
+                                player1.takeDamage(20);
+                                p1HealthBar.setWidth(player1.getHealth());
+                            }
                 timer.start();
             }
             else if(!downPressed.get())
