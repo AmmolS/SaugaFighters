@@ -9,7 +9,7 @@ public class Fighter
 {
     String player;
     String name;
-    double health;
+    int health = 400;
     double powerBar;
     double movementSpeed;
     double baseDamage;
@@ -20,6 +20,8 @@ public class Fighter
     private Image imageFighterForwardR;
     private Image imageFighterBackwardL;
     private Image imageFighterBackwardR;
+    private Image imageFighterPunchL;
+    private Image imageFighterPunchR;
 
     Fighter()
     {
@@ -30,7 +32,7 @@ public class Fighter
 
     }
 
-    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR)
+    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR)
     {
         this.imageFighterStanceL = stanceL;
         this.imageFighterStanceR = stanceR;
@@ -38,6 +40,8 @@ public class Fighter
         this.imageFighterForwardR = forwardR;
         this.imageFighterBackwardL = backwardL;
         this.imageFighterBackwardR = backwardR;
+        this.imageFighterPunchL = punchL;
+        this.imageFighterPunchR = punchR;
     }
 
     public Image getImageFighterStanceL()
@@ -68,6 +72,26 @@ public class Fighter
     public Image getImageFighterBackwardR()
     {
         return this.imageFighterBackwardR;
+    }
+
+    public Image getImageFighterPunchL()
+    {
+        return this.imageFighterPunchL;
+    }
+
+    public Image getImageFighterPunchR()
+    {
+        return this.imageFighterPunchR;
+    }
+
+    public void takeDamage(int damage)
+    {
+        this.health -= damage;
+    }
+
+    public int getHealth()
+    {
+        return this.health;
     }
 
     public void Health(){

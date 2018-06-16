@@ -31,11 +31,6 @@ public class Main extends Application
         stage.setScene(Menu.ShowMenu(stage, cs));
         stage.show();
 
-        //        StackPane layout = new StackPane();
-//        layout.getChildren().add(start);
-//        layout.getChildren().add(imageView);
-
-//        start.getStylesheets().add(getClass().getResource("UserInterface.Menu.css").toExternalForm());
 
 //        Image KratosStance = new Image("/Assets/Fighters.Kratos/KratosStance.gif");
 //        Image KratosForward = new Image("/Assets/Fighters.Kratos/KratosForward.gif");
