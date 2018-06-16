@@ -1,6 +1,9 @@
 package Fighters;
 
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+
+import java.util.concurrent.RecursiveAction;
 
 public class Fighter
 {
@@ -22,7 +25,6 @@ public class Fighter
     {
 
     }
-
     Fighter(String inputName, double inputHealth, double inputPower, double inputMovement, double inputDamage)
     {
 
@@ -66,5 +68,16 @@ public class Fighter
     public Image getImageFighterBackwardR()
     {
         return this.imageFighterBackwardR;
+    }
+
+    public void Health(){
+        Rectangle health_bar_left = new Rectangle(400, 200, javafx.scene.paint.Color.RED);
+        Rectangle health_bar_right = new Rectangle(400, 200, javafx.scene.paint.Color.RED);
+
+        health_bar_left.setX(0);
+        health_bar_left.setY(0);
+
+        health_bar_right.setX(0);
+        health_bar_right.setY(1200);
     }
 }

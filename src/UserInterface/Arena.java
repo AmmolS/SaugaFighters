@@ -73,18 +73,13 @@ public class Arena
                         }
                     System.out.println(p2.getLayoutX());
                     }
-                    if (p1.getX() < p2.getX()){
-
-                    }
-                    else if (p1.getX() < p2.getX()){
-
-                    }
-
                         if (e.getCode() == KeyCode.ENTER)
                         {
 
                         }
+                    if (p1.getX() > p2.getX()){
 
+                    }
 
                 }
         );
