@@ -11,10 +11,12 @@ public class Aries extends Fighter
     private Image imageAriesBackwardL = new Image("/Assets/Aries/AriesBackward.gif");
     private Image imageAriesBackwardR = new Image("/Assets/Aries/AriesBackwardR.gif");
     private Image imageAriesPunchL = new Image("/Assets/Aries/AriesMPunch.gif");
-    private Image imageAriesPunchR = new Image("/Assets/Aries/AriesPunchR.gif");
+    private Image imageAriesPunchR = new Image("/Assets/Aries/AriesMPunchR.gif");
+    private Image imageAriesJumpL = new Image("/Assets/Aries/AriesJump.gif");
+    private Image imageAriesJumpR = new Image("/Assets/Aries/AriesJumpR.gif");
 
     public Aries()
     {
-        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR, imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR);
+        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR, imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL, imageAriesJumpR);
     }
 }

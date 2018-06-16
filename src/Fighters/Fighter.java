@@ -22,6 +22,8 @@ public class Fighter
     private Image imageFighterBackwardR;
     private Image imageFighterPunchL;
     private Image imageFighterPunchR;
+    private Image imageFighterJumpL;
+    private Image imageFighterJumpR;
 
     Fighter()
     {
@@ -32,7 +34,7 @@ public class Fighter
 
     }
 
-    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR)
+    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR)
     {
         this.imageFighterStanceL = stanceL;
         this.imageFighterStanceR = stanceR;
@@ -42,6 +44,9 @@ public class Fighter
         this.imageFighterBackwardR = backwardR;
         this.imageFighterPunchL = punchL;
         this.imageFighterPunchR = punchR;
+        this.imageFighterJumpL = jumpL;
+        this.imageFighterJumpR = jumpR;
+
     }
 
     public Image getImageFighterStanceL()
@@ -82,6 +87,16 @@ public class Fighter
     public Image getImageFighterPunchR()
     {
         return this.imageFighterPunchR;
+    }
+
+    public Image getImageFighterJumpL()
+    {
+        return imageFighterJumpL;
+    }
+
+    public Image getImageFighterJumpR()
+    {
+        return imageFighterJumpR;
     }
 
     public void takeDamage(int damage)

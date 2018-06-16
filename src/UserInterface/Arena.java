@@ -97,7 +97,7 @@ public class Arena
             // Player 1 jumps
             if(e.getCode() == KeyCode.W)
             {
-//                p1.setImage();
+                p1.setImage(player1.getImageFighterJumpL());
                 wPressed.set(true);
             }
 
@@ -133,6 +133,7 @@ public class Arena
             // Player 2 jumps
             if(e.getCode() == KeyCode.UP)
             {
+                p2.setImage(player2.getImageFighterJumpR());
                 upPressed.set(true);
             }
 
@@ -148,14 +149,11 @@ public class Arena
             {
                 rightControlPressed.set(true);
             }
-
-
-
-
         });
 
         arena.setOnKeyReleased(e ->
         {
+            // Player 1
             if(e.getCode() == KeyCode.D)
             {
                 dPressed.set(false);
@@ -173,8 +171,15 @@ public class Arena
 
             if(e.getCode() == KeyCode.S)
             {
-
+                sPressed.set(false);
             }
+
+            if(e.getCode() == KeyCode.C)
+            {
+                cPressed.set(false);
+            }
+
+            // Player 2
 
             if(e.getCode() == KeyCode.LEFT)
             {
@@ -186,11 +191,28 @@ public class Arena
                 rightPressed.set(false);
             }
 
+            if(e.getCode() == KeyCode.UP)
+            {
+                upPressed.set(false);
+            }
+
+            if(e.getCode() == KeyCode.DOWN)
+            {
+                downPressed.set(false);
+            }
+
+            if(e.getCode() == KeyCode.CONTROL)
+            {
+                rightControlPressed.set(false);
+            }
+
+
         });
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
+                // Player 1
                 if (dPressed.get())
                 {
                     p1.setX((p1.getX() + 5));
@@ -201,6 +223,7 @@ public class Arena
                     p1.setX((p1.getX() - 5));
                 }
 
+                // Player 2
                 if (leftPressed.get())
                 {
                     p2.setX((p2.getX() - 5));
@@ -213,7 +236,7 @@ public class Arena
             }
         };
 
-
+        // Player 1
         dPressed.addListener((obs, wasPressed, nowPressed) ->
         {
             if(dPressed.get())
@@ -224,7 +247,6 @@ public class Arena
             {
                 p1.setImage(player1.getImageFighterStanceL());
             }
-
         });
 
         aPressed.addListener((obs, wasPressed, nowPressed) ->
@@ -237,9 +259,45 @@ public class Arena
             {
                 p1.setImage(player1.getImageFighterStanceL());
             }
-
         });
 
+        wPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(wPressed.get())
+            {
+                timer.start();
+            }
+            else if(!wPressed.get())
+            {
+                p1.setImage(player1.getImageFighterStanceL());
+            }
+        });
+
+        sPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(sPressed.get())
+            {
+                timer.start();
+            }
+            else if(!sPressed.get())
+            {
+                p1.setImage(player1.getImageFighterStanceL());
+            }
+        });
+
+        cPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(cPressed.get())
+            {
+                timer.start();
+            }
+            else if(!cPressed.get())
+            {
+                p1.setImage(player1.getImageFighterStanceL());
+            }
+        });
+
+        // Player 2
         leftPressed.addListener((obs, wasPressed, nowPressed) ->
         {
             if(leftPressed.get())
@@ -263,6 +321,43 @@ public class Arena
                 p2.setImage(player2.getImageFighterStanceR());
             }
         });
+
+        upPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(upPressed.get())
+            {
+                timer.start();
+            }
+            else if(!upPressed.get())
+            {
+                p2.setImage(player2.getImageFighterStanceR());
+            }
+        });
+
+        downPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(downPressed.get())
+            {
+                timer.start();
+            }
+            else if(!downPressed.get())
+            {
+                p2.setImage(player2.getImageFighterStanceR());
+            }
+        });
+
+        rightControlPressed.addListener((obs, wasPressed, nowPressed) ->
+        {
+            if(rightControlPressed.get())
+            {
+                timer.start();
+            }
+            else if(!rightControlPressed.get())
+            {
+                p2.setImage(player2.getImageFighterStanceR());
+            }
+        });
+
 
 
 //        dAndLeftPressed.addListener((obs, wasPressed, nowPressed) ->
