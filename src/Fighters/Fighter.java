@@ -77,10 +77,13 @@ public class Fighter
         health_bar_left.setX(0);
         health_bar_left.setY(0);
 
-        health_bar_right.setX(0);
-        health_bar_right.setY(1200);
+        health_bar_right.setX(1200);
+        health_bar_right.setY(0);
 
         Circle center = new Circle(20, Color.BLUE);
+
+        center.setCenterX(600);
+        center.setCenterY(0);
 
         /*
         Enter collision detection here
