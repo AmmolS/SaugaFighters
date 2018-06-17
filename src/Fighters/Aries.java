@@ -15,8 +15,39 @@ public class Aries extends Fighter
     private Image imageAriesJumpL = new Image("/Assets/Aries/AriesJump.gif");
     private Image imageAriesJumpR = new Image("/Assets/Aries/AriesJumpR.gif");
 
+    private Image[] listAriesPunchL = new Image[8];
+    private Image[] listAriesPunchR = new Image[8];
+    private Image[] listAriesJumpL = new Image[34];
+    private Image[] listAriesJumpR = new Image[34];
+
+
+
     public Aries()
     {
-        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR, imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL, imageAriesJumpR);
+        for(int i = 0; i < listAriesPunchL.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i));
+            listAriesPunchL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesPunchR.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesPunchFramesR/Frame%s.png", Integer.toString(i));
+            listAriesPunchR[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesJumpL.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesJumpFramesL/Frame%s.png", Integer.toString(i));
+            listAriesJumpL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesJumpR.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesJumpFramesL/Frame%s.png", Integer.toString(i));
+            listAriesJumpR[i] = new Image(url);
+        }
+
+        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR, imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL, imageAriesJumpR, listAriesJumpL, listAriesJumpR, listAriesPunchL, listAriesPunchR);
     }
 }
