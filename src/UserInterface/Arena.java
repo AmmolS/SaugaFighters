@@ -48,7 +48,7 @@ public class Arena
     private BooleanProperty leftPressed = new SimpleBooleanProperty();
     private BooleanProperty upPressed = new SimpleBooleanProperty();
     private BooleanProperty downPressed = new SimpleBooleanProperty();
-    private BooleanProperty rightControlPressed = new SimpleBooleanProperty();
+    private BooleanProperty rightEnterPressed = new SimpleBooleanProperty();
 
     private BooleanBinding dAndRightPressed = dPressed.and(rightPressed);
     private BooleanBinding dAndLeftPressed = dPressed.and(leftPressed);
@@ -304,7 +304,7 @@ public class Arena
                 }
 
                 // Player 2 kicks
-                if(e.getCode() == KeyCode.CONTROL && !p2KickAction && !p2PunchAction && !p2JumpAction && !rightControlPressed.get())
+                if(e.getCode() == KeyCode.ENTER && !p2KickAction && !p2PunchAction && !p2JumpAction && !rightEnterPressed.get())
                 {
                     if(leftPressed.get() || rightPressed.get())
                     {
@@ -335,7 +335,7 @@ public class Arena
                         p2.setY(currentY);
                         p2KickAction = false;
                     });
-                    rightControlPressed.set(true);
+                    rightEnterPressed.set(true);
                 }
             }
 //            else
@@ -399,9 +399,9 @@ public class Arena
 //                p2PunchAction = false;
             }
 
-            if(e.getCode() == KeyCode.CONTROL)
+            if(e.getCode() == KeyCode.ENTER)
             {
-                rightControlPressed.set(false);
+                rightEnterPressed.set(false);
 //                p2KickAction = false;
             }
 
@@ -625,9 +625,9 @@ public class Arena
             }
         });
 
-        rightControlPressed.addListener((obs, wasPressed, nowPressed) ->
+        rightEnterPressed.addListener((obs, wasPressed, nowPressed) ->
         {
-            if(rightControlPressed.get())
+            if(rightEnterPressed.get())
             {
                 if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
                 {
@@ -636,7 +636,7 @@ public class Arena
                 }
                 timer.start();
             }
-            else if(!rightControlPressed.get())
+            else if(!rightEnterPressed.get())
             {
                 p2.setImage(player2.getImageFighterStanceR());
             }
