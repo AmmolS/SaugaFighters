@@ -12,8 +12,8 @@ public class Menu
 {
 
     private Scene startMenu;
-    private CharacterSelectScreen cs;
-    private ControlsMenu cm;
+    private CharacterSelectScreen characterSelectScreen;
+    private ControlsMenu controlsMenu;
 
     public Menu(Stage stage)
     {
@@ -49,7 +49,7 @@ public class Menu
         Button start = new Button();
         start.setGraphic(new ImageView(imageStart));
         start.setStyle("-fx-background-color: transparent; ");
-        start.setOnAction(event -> stage.setScene(this.cs.getCharSelectScene()));
+        start.setOnAction(event -> stage.setScene(this.characterSelectScreen.getCharacterSelectScene()));
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart)));
         start.setLayoutX(525);
@@ -67,7 +67,7 @@ public class Menu
         Button control = new Button();
         control.setGraphic(new ImageView(imageControl));
         control.setStyle("-fx-background-color: transparent; ");
-        control.setOnAction(event -> stage.setScene(this.cm.getControlScene()));
+        control.setOnAction(event -> stage.setScene(this.controlsMenu.getControlScene()));
         control.setOnMouseEntered(event -> control.setGraphic(new ImageView("Assets/Menu/control_hover.png")));
         control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
         control.setLayoutX(465);
@@ -103,13 +103,13 @@ public class Menu
         return this.startMenu;
     }
 
-    public void setCs(CharacterSelectScreen cs)
+    public void setCharacterSelectScreen(CharacterSelectScreen cs)
     {
-        this.cs = cs;
+        this.characterSelectScreen = cs;
     }
 
-    public void setCm(ControlsMenu cm)
+    public void setControlsMenu(ControlsMenu cm)
     {
-        this.cm = cm;
+        this.controlsMenu = cm;
     }
 }

@@ -33,9 +33,10 @@ public class Main extends Application
         cs.setMenu(ms);
         cs.setArenaSelect(as);
         cs.setArena(arena);
-        as.setArenaSetup(arena);
-        ms.setCm(cm);
-        ms.setCs(cs);
+        as.setArena(arena);
+        as.setCharacterSelectScreen(cs);
+        ms.setCharacterSelectScreen(cs);
+        ms.setControlsMenu(cm);
         arena.setMenu(ms);
         stage.setScene(ms.getStartMenu());
         stage.show();

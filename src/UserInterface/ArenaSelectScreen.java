@@ -14,6 +14,7 @@ public class ArenaSelectScreen
     private Arena arenaSetup;
     private Scene arena;
     private Image arenaChoice;
+    private CharacterSelectScreen characterSelectScreen;
 
     public ArenaSelectScreen(Stage stage)
     {
@@ -78,6 +79,15 @@ public class ArenaSelectScreen
         arrowRight.setOnMouseEntered(event -> arrowRight.setGraphic(new ImageView("/Assets/right_hover.png")));
         arrowRight.setOnMouseExited(event -> arrowRight.setGraphic(new ImageView(imageArrowRight)));
 
+        Button back = new Button("", new ImageView("/Assets/back.png"));
+        back.setStyle("-fx-background-color: transparent;");
+        back.setOnAction(event -> stage.setScene(characterSelectScreen.getCharacterSelectScene()));
+        back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
+        back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
+        back.setLayoutX(0);
+        back.setLayoutY(503);
+
+
         Button selectMap = new Button("", new ImageView(imageChooseMap));
         selectMap.setLayoutX(400);
         selectMap.setLayoutY(403);
@@ -85,7 +95,7 @@ public class ArenaSelectScreen
         selectMap.setOnMouseEntered(event -> selectMap.setGraphic(new ImageView("/Assets/choose_map_hover.png")));
         selectMap.setOnMouseExited(event -> selectMap.setGraphic(new ImageView(imageChooseMap)));
         selectMap.setOnAction(event -> {
-            setArena((BgOption.getImage()));
+            setArenaMap((BgOption.getImage()));
             arenaSetup.setArenaChoice(BgOption.getImage());
             arenaSetup.play(stage);
             stage.setScene(this.arenaSetup.getArena());
@@ -93,13 +103,14 @@ public class ArenaSelectScreen
         });
 
         Group arenaSelectLayout = new Group();
-        arenaSelectLayout.getChildren().addAll(background, arenaSelectTitle, BgOption, arrowLeft, arrowRight, selectMap);
+        arenaSelectLayout.getChildren().addAll(background, arenaSelectTitle, BgOption, arrowLeft, arrowRight, selectMap,
+                back);
         Scene arenaSelect = new Scene(arenaSelectLayout, 1200, 603);
         arenaSelect.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));
         this.arena = arenaSelect;
     }
 
-    public void setArenaSetup(Arena a)
+    public void setArena(Arena a)
     {
         this.arenaSetup = a;
     }
@@ -109,7 +120,7 @@ public class ArenaSelectScreen
         return this.arena;
     }
 
-    public void setArena(Image chosenMap)
+    public void setArenaMap(Image chosenMap)
     {
         this.arenaChoice = chosenMap;
     }
@@ -117,5 +128,10 @@ public class ArenaSelectScreen
     public Image getArenaChoice()
     {
         return this.arenaChoice;
+    }
+
+    public void setCharacterSelectScreen(CharacterSelectScreen characterSelectScreen)
+    {
+        this.characterSelectScreen = characterSelectScreen;
     }
 }

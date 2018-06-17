@@ -15,7 +15,7 @@ import javafx.scene.ImageCursor;
 
 public class CharacterSelectScreen
 {
-    private Scene sc;
+    private Scene characterSelectScene;
 
     private ArenaSelectScreen arenaInfo;
 
@@ -162,12 +162,12 @@ public class CharacterSelectScreen
         characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back, charSelectTitle, confirm);
         Scene characterSelect = new Scene(characterMenuLayout, 1200, 603);
         characterMenuLayout.setCursor(new ImageCursor(new Image ("/Assets/cursor.png")));
-        this.sc = characterSelect;
+        this.characterSelectScene = characterSelect;
     }
 
-    public Scene getCharSelectScene ()
+    public Scene getCharacterSelectScene ()
     {
-        return this.sc;
+        return this.characterSelectScene;
     }
 
     public void setCharacter(String p1, String p2)
