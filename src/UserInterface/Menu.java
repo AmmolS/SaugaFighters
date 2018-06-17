@@ -11,7 +11,11 @@ import javafx.stage.Stage;
 public class Menu
 {
 
-    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc, ControlsMenu cm)
+    private Scene startMenu;
+    private CharacterSelectScreen cs;
+    private ControlsMenu cm;
+
+    public Menu(Stage stage)
     {
         // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
@@ -45,7 +49,7 @@ public class Menu
         Button start = new Button();
         start.setGraphic(new ImageView(imageStart));
         start.setStyle("-fx-background-color: transparent; ");
-        start.setOnAction(event -> stage.setScene(sc.getCharSelectScene()));
+        start.setOnAction(event -> stage.setScene(this.cs.getCharSelectScene()));
         start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png")));
         start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart)));
         start.setLayoutX(525);
@@ -63,7 +67,7 @@ public class Menu
         Button control = new Button();
         control.setGraphic(new ImageView(imageControl));
         control.setStyle("-fx-background-color: transparent; ");
-        control.setOnAction(event -> stage.setScene(cm.getControlScene()));
+        control.setOnAction(event -> stage.setScene(this.cm.getControlScene()));
         control.setOnMouseEntered(event -> control.setGraphic(new ImageView("Assets/Menu/control_hover.png")));
         control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
         control.setLayoutX(465);
@@ -89,9 +93,23 @@ public class Menu
 
         Group startMenuLayout = new Group();
         startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu);
-        Scene startMenu = new Scene(startMenuLayout, 1200, 603);
+        startMenu = new Scene(startMenuLayout, 1200, 603);
 
         startMenu.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));
-        return startMenu;
+    }
+
+    public Scene getStartMenu()
+    {
+        return this.startMenu;
+    }
+
+    public void setCs(CharacterSelectScreen cs)
+    {
+        this.cs = cs;
+    }
+
+    public void setCm(ControlsMenu cm)
+    {
+        this.cm = cm;
     }
 }

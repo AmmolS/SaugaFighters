@@ -12,7 +12,7 @@ public class ControlsMenu
 {
     private Scene cm;
 
-    public ControlsMenu(Stage stage)
+    public ControlsMenu(Stage stage, Menu ms)
     {
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
         ImageView background = new ImageView(imageBackground);
@@ -26,18 +26,17 @@ public class ControlsMenu
         background.setFitWidth(1200);
 
 
-//        Button back = new Button();
-//        back.setGraphic(new ImageView(imageBack));
-//        back.setStyle("-fx-background-color: transparent;");
-//        CharacterSelectScreen sc = new CharacterSelectScreen(stage);
-//        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, sc, this )));
-//        back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
-//        back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
-//        back.setLayoutX(0);
-//        back.setLayoutY(403);
+        Button back = new Button();
+        back.setGraphic(new ImageView(imageBack));
+        back.setStyle("-fx-background-color: transparent;");
+        back.setOnAction(event -> stage.setScene(ms.getStartMenu()));
+        back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
+        back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
+        back.setLayoutX(0);
+        back.setLayoutY(403);
 
         Group characterMenuLayout = new Group();
-        characterMenuLayout.getChildren().addAll(background, controlPic);
+        characterMenuLayout.getChildren().addAll(background, controlPic, back);
 
         Scene controls = new Scene(characterMenuLayout, 1200, 603);
 

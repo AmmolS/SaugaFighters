@@ -7,10 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Fighter
 {
-    String player;
-    String name;
     int health = 400;
-    double powerBar;
     double movementSpeed;
     double baseDamage;
 

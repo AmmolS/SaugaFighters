@@ -26,6 +26,8 @@ public class CharacterSelectScreen
 
     private Arena arena;
 
+    private Menu menu;
+
     public CharacterSelectScreen(Stage stage)
     {
 
@@ -153,8 +155,7 @@ public class CharacterSelectScreen
         Button back = new Button();
         back.setGraphic(new ImageView(imageBack));
         back.setStyle("-fx-background-color: transparent;");
-        ControlsMenu cm = new ControlsMenu(stage);
-        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this, cm)));
+        back.setOnAction(event -> stage.setScene(menu.getStartMenu()));
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);
@@ -210,5 +211,10 @@ public class CharacterSelectScreen
     public void setArena(Arena arena)
     {
         this.arena = arena;
+    }
+
+    public void setMenu(Menu menu)
+    {
+        this.menu = menu;
     }
 }

@@ -22,16 +22,18 @@ public class Main extends Application
         stage.getIcons().add(new Image("/Assets/Logo.png"));
         stage.setResizable(false);
 
+        Menu ms = new Menu(stage);
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
         CharacterSelectScreen cs = new CharacterSelectScreen(stage);
-        ControlsMenu cm = new ControlsMenu(stage);
+        ControlsMenu cm = new ControlsMenu(stage, ms);
         Arena arena = new Arena();
-
 
         cs.setArenaSelect(as);
         cs.setArena(arena);
         as.setArenaSetup(arena);
-        stage.setScene(Menu.ShowMenu(stage, cs, cm));
+        ms.setCm(cm);
+        ms.setCs(cs);
+        stage.setScene(ms.getStartMenu());
         stage.show();
 
     }
