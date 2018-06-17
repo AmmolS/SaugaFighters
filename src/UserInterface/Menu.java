@@ -19,6 +19,7 @@ public class Menu
         Image imageHelp = new Image("/Assets/Menu/help.png");
         Image imageQuit = new Image("/Assets/Menu/quit.png");
         Image imageTitle = new Image("/Assets/Menu/title.png");
+        Image imageControl = new Image("/Assets/Menu/control.png");
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
         Image imageKratosStance = new Image("/Assets/Kratos/KratosStance.gif");
 
@@ -53,11 +54,21 @@ public class Menu
         Button help = new Button();
         help.setGraphic(new ImageView(imageHelp));
         help.setStyle("-fx-background-color: transparent; ");
-        help.setOnAction(event -> stage.setScene(sc.getCharSelectScene()));
         help.setOnMouseEntered(event -> help.setGraphic(new ImageView("/Assets/Menu/help_hover.png")));
         help.setOnMouseExited(event -> help.setGraphic(new ImageView(imageHelp)));
         help.setLayoutX(465);
         help.setLayoutY(375);
+
+
+//        Button control = new Button();
+//        control.setGraphic(new ImageView(imageControl));
+//        control.setStyle("-fx-background-color: transparent; ");
+//        control.setOnAction(event -> stage.setScene(cm.getControlScene()));
+//        control.setOnMouseEntered(event -> control.setGraphic(new ImageView("Assets/Menu/control_hover.png")));
+//        control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
+//        control.setLayoutX(465);
+//        control.setLayoutY(375);
+
 
         Button quit = new Button();
         quit.setGraphic(new ImageView(imageQuit));
