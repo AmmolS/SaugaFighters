@@ -25,7 +25,7 @@ public class Menu
         Image imageTitle = new Image("/Assets/Menu/title.png");
         Image imageControl = new Image("/Assets/Menu/control.png");
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
-        Image imageKratosStance = new Image("/Assets/Kratos/KratosStance.gif");
+        Image imageKratosStance = new Image("/Assets/Kratos/KratosStanceRight.gif");
 
         // Make Start Menu
         ImageView backgroundMenu = new ImageView(imageBackground);
@@ -88,11 +88,11 @@ public class Menu
         ariesStanceMenu.setY(325);
 
         ImageView kratosStanceMenu = new ImageView(imageKratosStance);
-        kratosStanceMenu.setX(600);
+        kratosStanceMenu.setX(774);
         kratosStanceMenu.setY(325);
 
         Group startMenuLayout = new Group();
-        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu);
+        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu, kratosStanceMenu);
         startMenu = new Scene(startMenuLayout, 1200, 603);
 
         startMenu.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));

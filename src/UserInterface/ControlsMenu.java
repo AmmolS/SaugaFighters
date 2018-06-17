@@ -33,14 +33,12 @@ public class ControlsMenu
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);
-        back.setLayoutY(403);
+        back.setLayoutY(503);
 
         Group characterMenuLayout = new Group();
         characterMenuLayout.getChildren().addAll(background, controlPic, back);
 
-        Scene controls = new Scene(characterMenuLayout, 1200, 603);
-
-        this.cm = controls;
+        this.cm = new Scene(characterMenuLayout, 1200, 603);
 
     }
 

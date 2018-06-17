@@ -51,8 +51,8 @@ public class CharacterSelectScreen
         charSelectTitle.setY(-30);
 
         Button confirm = new Button("", new ImageView(imageConfirm));
-        confirm.setLayoutX(780);
-        confirm.setLayoutY(403);
+        confirm.setLayoutX(980);
+        confirm.setLayoutY(503);
         confirm.setStyle("-fx-background-color: transparent;");
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
@@ -156,7 +156,7 @@ public class CharacterSelectScreen
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);
-        back.setLayoutY(403);
+        back.setLayoutY(503);
 
         Group characterMenuLayout = new Group();
         characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back, charSelectTitle, confirm);
