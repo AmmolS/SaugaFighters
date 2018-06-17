@@ -80,13 +80,25 @@ public class Arena
         p2HealthBar.setX(800);
         p2HealthBar.setY(0);
 
+        ImageView player1Text = new ImageView(new Image("/Assets/player1.png"));
+        player1Text.setFitWidth(250);
+        player1Text.setFitHeight(100);
+        player1Text.setX(0);
+        player1Text.setY(0);
+
+        ImageView player2Text = new ImageView(new Image("/Assets/player2.png"));
+        player2Text.setFitWidth(250);
+        player2Text.setFitHeight(100);
+        player2Text.setX(950);
+        player2Text.setY(0);
+
         Circle center = new Circle(20, Color.BLUE);
 
         center.setCenterX(600);
         center.setCenterY(0);
 
         arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(this.background, p1, p2, p1HealthBar, p2HealthBar);
+        arenaLayout.getChildren().addAll(this.background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
         arena.setOnKeyPressed(e ->
