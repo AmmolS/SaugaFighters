@@ -69,9 +69,7 @@ public class CharacterSelectScreen
         ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
-        ariesStanceCharButton.setLayoutY(100);
-        ariesStanceCharButton.setMinWidth(156);
-        ariesStanceCharButton.setMinHeight(222);
+        ariesStanceCharButton.setLayoutY(200);
         ariesStanceCharButton.setOnAction(event -> {
             if (ariesStanceCharButton.isSelected() && this.player1Char.equals("") && this.player2Char.equals(""))
             {
@@ -111,9 +109,7 @@ public class CharacterSelectScreen
         kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF  ; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
-        kratosStanceCharButton.setLayoutY(100);
-        kratosStanceCharButton.setMinWidth(226);
-        kratosStanceCharButton.setMinHeight(222);
+        kratosStanceCharButton.setLayoutY(200);
         kratosStanceCharButton.setOnAction(event -> {
             if (kratosStanceCharButton.isSelected() && this.player1Char.equals("") && this.player2Char.equals(""))
             {
