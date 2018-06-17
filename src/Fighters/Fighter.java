@@ -24,10 +24,17 @@ public class Fighter
     private Image imageFighterPunchR;
     private Image imageFighterJumpL;
     private Image imageFighterJumpR;
+
     private Image[] listFighterJumpL;
     private Image[] listFighterJumpR;
     private Image[] listFighterPunchL;
     private Image[] listFighterPunchR;
+    private Image[] listFighterKickL;
+    private Image[] listFighterKickR;
+
+    private int fighterJumpDuration;
+    private int fighterPunchDuration;
+    private int fighterKickDuration;
 
     Fighter()
     {
@@ -38,7 +45,7 @@ public class Fighter
 
     }
 
-    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR, Image[] listJumpL, Image[] listJumpR, Image[] listPunchL, Image[] listPunchR)
+    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR, Image[] listJumpL, Image[] listJumpR, Image[] listPunchL, Image[] listPunchR, Image[] listKickL, Image[] listKickR, int jumpDuration, int punchDuration, int kickDuration)
     {
         this.imageFighterStanceL = stanceL;
         this.imageFighterStanceR = stanceR;
@@ -54,6 +61,11 @@ public class Fighter
         this.listFighterJumpR = listJumpR;
         this.listFighterPunchL = listPunchL;
         this.listFighterPunchR = listPunchR;
+        this.listFighterKickL = listKickL;
+        this.listFighterKickR = listKickR;
+        this.fighterJumpDuration = jumpDuration;
+        this.fighterKickDuration = kickDuration;
+        this.fighterPunchDuration = punchDuration;
 
 
     }
@@ -128,6 +140,16 @@ public class Fighter
         return listFighterPunchR;
     }
 
+    public Image[] getListFighterKickL()
+    {
+        return listFighterKickL;
+    }
+
+    public Image[] getListFighterKickR()
+    {
+        return listFighterKickR;
+    }
+
     public void takeDamage(int damage)
     {
         this.health -= damage;
@@ -144,4 +166,18 @@ public class Fighter
         return health_bar;
     }
 
+    public int getFighterJumpDuration()
+    {
+        return fighterJumpDuration;
+    }
+
+    public int getFighterKickDuration()
+    {
+        return fighterKickDuration;
+    }
+
+    public int getFighterPunchDuration()
+    {
+        return fighterPunchDuration;
+    }
 }

@@ -19,6 +19,8 @@ public class Kratos extends Fighter
     private Image[] listKratosPunchR = new Image[16];
     private Image[] listKratosJumpL = new Image[31];
     private Image[] listKratosJumpR = new Image[31];
+    private Image[] listKratosKickL = new Image[14];
+    private Image[] listKratosKickR = new Image[14];
 
     public Kratos()
     {
@@ -47,6 +49,18 @@ public class Kratos extends Fighter
             listKratosJumpR[i] = new Image(url);
         }
 
-        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR, imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL, imageKratosJumpR, listKratosJumpL, listKratosJumpR, listKratosPunchL, listKratosPunchR);
+        for(int i = 0; i < listKratosKickL.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosKickFramesL/Frame%s.png", Integer.toString(i));
+            listKratosKickL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listKratosKickR.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosKickFramesR/Frame%s.png", Integer.toString(i));
+            listKratosKickR[i] = new Image(url);
+        }
+
+        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR, imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL, imageKratosJumpR, listKratosJumpL, listKratosJumpR, listKratosPunchL, listKratosPunchR, listKratosKickL, listKratosKickR, 325, 650, 900);
     }
 }

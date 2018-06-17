@@ -20,6 +20,8 @@ public class Main extends Application
     {
         stage.setTitle("Sauga Fighterz");
         stage.getIcons().add(new Image("/Assets/Logo.png"));
+        stage.setResizable(false);
+
         ArenaSelectScreen as = new ArenaSelectScreen(stage);
         CharacterSelectScreen cs = new CharacterSelectScreen(stage);
         ControlsMenu cm = new ControlsMenu(stage);

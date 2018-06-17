@@ -25,10 +25,16 @@ public class Arena
     private Scene arena;
     private ImageView background;
     private Group arenaLayout;
+
     private Boolean p1Jump = false;
-    private Boolean p1Attack = false;
+    private Boolean p1Punch = false;
+    private Boolean p1Kick = false;
     private Boolean p2Jump = false;
-    private Boolean p2Attack = false;
+    private Boolean p2Punch = false;
+    private Boolean p2Kick = false;
+
+    Boolean leftPressedAttack;
+    Boolean rightPressedAttack;
 
 
     private Rectangle p1HealthBar;
@@ -109,7 +115,7 @@ public class Arena
                 {
                     p1Jump = true;
                     p1.setY(303 - (player1.getImageFighterJumpL().getHeight() - player1.getImageFighterStanceL().getHeight()));
-                    TranslateTransition jumpP1 = new TranslateTransition(Duration.millis(365), p1);
+                    TranslateTransition jumpP1 = new TranslateTransition(Duration.millis(player1.getFighterJumpDuration()), p1);
                     jumpP1.setByY(-300);
                     jumpP1.setAutoReverse(true);
                     jumpP1.setCycleCount(2);
@@ -118,13 +124,13 @@ public class Arena
                     Transition jumpAnimationP1 = new Transition()
                     {
                         {
-                            setCycleDuration(Duration.millis(365));
+                            setCycleDuration(Duration.millis(player1.getFighterJumpDuration()));
                         }
                         @Override
                         protected void interpolate(double frac)
                         {
                             int index = (int)(frac*(player1.getListFighterJumpL().length-1));
-                            p1.setImage(player1.getListFighterJumpR()[index]);
+                            p1.setImage(player1.getListFighterJumpL()[index]);
                         }
                     };
                     jumpAnimationP1.play();
@@ -140,12 +146,12 @@ public class Arena
                 }
 
                 // Player 1 punches
-                if(e.getCode() == KeyCode.S && !p1Attack)
+                if(e.getCode() == KeyCode.S && !p1Punch)
                 {
                     Transition punchAnimationP1 = new Transition()
                     {
                         {
-                            setCycleDuration(Duration.millis(340));
+                            setCycleDuration(Duration.millis(player1.getFighterPunchDuration()));
                         }
                         @Override
                         protected void interpolate(double frac)
@@ -157,13 +163,32 @@ public class Arena
                     punchAnimationP1.play();
                     punchAnimationP1.setOnFinished(event -> p1.setImage(player1.getImageFighterStanceL()));
                     sPressed.set(true);
-                    p1Attack = true;
+                    p1Punch = true;
                 }
 
                 // Player 1 kicks
-                if(e.getCode() == KeyCode.C)
+                if(e.getCode() == KeyCode.C && !p1Kick)
                 {
-//                p1.setImage(player1.getImageFighterPunchL());
+                    double currentY = p1.getY();
+                    p1.setY(p1.getY() - (player1.getListFighterKickR()[0].getHeight() - player1.getImageFighterStanceR().getHeight()));
+                    Transition kickAnimationP1 = new Transition()
+                    {
+                        {
+                            setCycleDuration(Duration.millis(player1.getFighterKickDuration()));
+                        }
+                        @Override
+                        protected void interpolate(double frac)
+                        {
+                            int index = (int)(frac*(player1.getListFighterKickL().length-1));
+                            p1.setImage(player1.getListFighterKickL()[index]);
+                        }
+                    };
+                    kickAnimationP1.play();
+                    kickAnimationP1.setOnFinished(event -> {
+                        p1.setImage(player1.getImageFighterStanceL());
+                        p1.setY(currentY);
+                    });
+                    p1Kick = true;
                     cPressed.set(true);
                 }
 
@@ -173,6 +198,7 @@ public class Arena
                 {
                     p2.setImage(player2.getImageFighterForwardR());
                     leftPressed.set(true);
+                    leftPressedAttack = true;
                 }
 
                 // Player 2 moves right
@@ -180,6 +206,7 @@ public class Arena
                 {
                     p2.setImage(player2.getImageFighterBackwardR());
                     rightPressed.set(true);
+                    rightPressedAttack = true;
                 }
 
                 // Player 2 jumps
@@ -187,7 +214,7 @@ public class Arena
                 {
                     p2Jump = true;
                     p2.setY(303 - (player2.getImageFighterJumpR().getHeight() - player2.getImageFighterStanceR().getHeight()));
-                    TranslateTransition jumpP2 = new TranslateTransition(Duration.millis(325), p2);
+                    TranslateTransition jumpP2 = new TranslateTransition(Duration.millis(player2.getFighterJumpDuration()), p2);
                     jumpP2.setByY(-300);
                     jumpP2.setAutoReverse(true);
                     jumpP2.setCycleCount(2);
@@ -196,7 +223,7 @@ public class Arena
                     Transition jumpAnimationP2 = new Transition()
                     {
                         {
-                            setCycleDuration(Duration.millis(325));
+                            setCycleDuration(Duration.millis(player2.getFighterJumpDuration()));
                         }
                         @Override
                         protected void interpolate(double frac)
@@ -218,12 +245,15 @@ public class Arena
                 }
 
                 // Player 2 punches
-                if(e.getCode() == KeyCode.DOWN && !p2Attack)
+                if(e.getCode() == KeyCode.DOWN && !p2Punch)
                 {
+                    p2Punch = true;
+                    double currentX = p2.getX();
+                    p2.setX(p2.getX() - (player2.getImageFighterPunchR().getWidth() - player2.getImageFighterStanceR().getWidth()));
                     Transition punchAnimationP2 = new Transition()
                     {
                         {
-                            setCycleDuration(Duration.millis(650));
+                            setCycleDuration(Duration.millis(player2.getFighterPunchDuration()));
                         }
                         @Override
                         protected void interpolate(double frac)
@@ -233,14 +263,47 @@ public class Arena
                         }
                     };
                     punchAnimationP2.play();
-                    punchAnimationP2.setOnFinished(event -> p2.setImage(player2.getImageFighterStanceR()));
+                    punchAnimationP2.setOnFinished(event -> {
+                        p2.setImage(player2.getImageFighterStanceR());
+                        if (!leftPressed.get() && !rightPressed.get())
+                        {
+                            p2.setX(currentX);
+                        }
+                        p2Punch = false;
+                    });
                     downPressed.set(true);
-                    p2Attack = true;
+
                 }
 
                 // Player 2 kicks
-                if(e.getCode() == KeyCode.CONTROL)
+                if(e.getCode() == KeyCode.CONTROL && !p2Kick)
                 {
+                    p2Kick = true;
+                    double currentX = p2.getX();
+                    double currentY = p2.getY();
+                    p2.setX(p2.getX() - (player2.getListFighterKickR()[0].getWidth() - player2.getImageFighterStanceR().getWidth()));
+                    p2.setY(p2.getY() - (player2.getListFighterKickR()[0].getHeight() - player2.getImageFighterStanceR().getHeight()));
+                    Transition kickAnimationP2 = new Transition()
+                    {
+                        {
+                            setCycleDuration(Duration.millis(player2.getFighterKickDuration()));
+                        }
+                        @Override
+                        protected void interpolate(double frac)
+                        {
+                            int index = (int)(frac*(player2.getListFighterKickR().length-1));
+                            p2.setImage(player2.getListFighterKickR()[index]);
+                        }
+                    };
+                    kickAnimationP2.play();
+                    kickAnimationP2.setOnFinished(event -> {
+                        p2.setImage(player2.getImageFighterStanceR());
+                        p2.setX(currentX);
+                        p2.setY(currentY);
+                        p2Kick = false;
+                        leftPressedAttack = false;
+                        rightPressedAttack = false;
+                    });
                     rightControlPressed.set(true);
                 }
             }
@@ -272,12 +335,13 @@ public class Arena
             if(e.getCode() == KeyCode.S)
             {
                 sPressed.set(false);
-                p1Attack = false;
+                p1Punch = false;
             }
 
             if(e.getCode() == KeyCode.C)
             {
                 cPressed.set(false);
+                p1Kick = false;
             }
 
             // Player 2
@@ -301,12 +365,13 @@ public class Arena
             if(e.getCode() == KeyCode.DOWN)
             {
                 downPressed.set(false);
-                p2Attack = false;
+//                p2Punch = false;
             }
 
             if(e.getCode() == KeyCode.CONTROL)
             {
                 rightControlPressed.set(false);
+//                p2Kick = false;
             }
 
 
@@ -316,23 +381,23 @@ public class Arena
             @Override
             public void handle(long now) {
                 // Player 1
-                if (dPressed.get())
+                if (dPressed.get() && p1.getX() <= 1200 - p1.getImage().getWidth())
                 {
                     p1.setX((p1.getX() + 5));
                 }
 
-                if (aPressed.get())
+                if (aPressed.get() && p1.getX() >= 0)
                 {
                     p1.setX((p1.getX() - 5));
                 }
 
                 // Player 2
-                if (leftPressed.get())
+                if (leftPressed.get() && p2.getX() >= 0)
                 {
                     p2.setX((p2.getX() - 5));
                 }
 
-                if (rightPressed.get())
+                if (rightPressed.get() && p2.getX() <= 1200 - p2.getImage().getWidth())
                 {
                     p2.setX((p2.getX() + 5));
                 }
@@ -398,6 +463,12 @@ public class Arena
         {
             if(cPressed.get())
             {
+                if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
+                {
+                    player2.takeDamage(40);
+                    p2HealthBar.setWidth(player2.getHealth());
+                    p2HealthBar.setX(p2HealthBar.getX() + 40);
+                }
                 timer.start();
             }
             else if(!cPressed.get())
@@ -464,6 +535,11 @@ public class Arena
         {
             if(rightControlPressed.get())
             {
+                if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
+                {
+                    player1.takeDamage(40);
+                    p1HealthBar.setWidth(player1.getHealth());
+                }
                 timer.start();
             }
             else if(!rightControlPressed.get())
