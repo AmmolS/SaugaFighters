@@ -153,7 +153,8 @@ public class CharacterSelectScreen
         Button back = new Button();
         back.setGraphic(new ImageView(imageBack));
         back.setStyle("-fx-background-color: transparent;");
-        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this)));
+        ControlsMenu cm = new ControlsMenu(stage);
+        back.setOnAction(event -> stage.setScene(Menu.ShowMenu(stage, this, cm)));
         back.setOnMouseEntered(event -> back.setGraphic(new ImageView("/Assets/back_hover.png")));
         back.setOnMouseExited(event -> back.setGraphic(new ImageView("/Assets/back.png")));
         back.setLayoutX(0);

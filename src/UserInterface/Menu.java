@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Menu
 {
 
-    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc)
+    public static Scene ShowMenu(Stage stage, CharacterSelectScreen sc, ControlsMenu cm)
     {
         // Initialize required images
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
@@ -60,14 +60,14 @@ public class Menu
         help.setLayoutY(375);
 
 
-//        Button control = new Button();
-//        control.setGraphic(new ImageView(imageControl));
-//        control.setStyle("-fx-background-color: transparent; ");
-//        control.setOnAction(event -> stage.setScene(cm.getControlScene()));
-//        control.setOnMouseEntered(event -> control.setGraphic(new ImageView("Assets/Menu/control_hover.png")));
-//        control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
-//        control.setLayoutX(465);
-//        control.setLayoutY(375);
+        Button control = new Button();
+        control.setGraphic(new ImageView(imageControl));
+        control.setStyle("-fx-background-color: transparent; ");
+        control.setOnAction(event -> stage.setScene(cm.getControlScene()));
+        control.setOnMouseEntered(event -> control.setGraphic(new ImageView("Assets/Menu/control_hover.png")));
+        control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
+        control.setLayoutX(465);
+        control.setLayoutY(375);
 
 
         Button quit = new Button();
@@ -88,7 +88,7 @@ public class Menu
         kratosStanceMenu.setY(325);
 
         Group startMenuLayout = new Group();
-        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, ariesStanceMenu);
+        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu);
         Scene startMenu = new Scene(startMenuLayout, 1200, 603);
 
         startMenu.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));
