@@ -2,6 +2,7 @@ package UserInterface;
 
 import Fighters.Fighter;
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -14,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Arena
 {
@@ -22,6 +24,8 @@ public class Arena
     private Scene arena;
     private ImageView background;
     private Group arenaLayout;
+    private Boolean p1Jump = false;
+    private Boolean p1Attack = false;
 
     private Rectangle p1HealthBar;
     private Rectangle p2HealthBar;
@@ -95,14 +99,30 @@ public class Arena
             }
 
             // Player 1 jumps
-            if(e.getCode() == KeyCode.W)
+            if(e.getCode() == KeyCode.W && !p1Jump)
             {
                 p1.setImage(player1.getImageFighterJumpL());
+                p1.setY(303 - (player1.getImageFighterJumpL().getHeight() - p1.getImage().getHeight()));
+                System.out.println(p1.getImage().getHeight());
+                TranslateTransition jump = new TranslateTransition(Duration.millis(365), p1);
+                jump.setByY(-300);
+                jump.setAutoReverse(true);
+                jump.setCycleCount(2);
+                jump.play();
+                jump.setOnFinished(event -> {
+                    p1.setY(303);
+                    p1.setImage(player1.getImageFighterStanceL());
+                }
+
+
+                );
+
+                p1Jump = true;
                 wPressed.set(true);
             }
 
             // Player 1 punches
-            if(e.getCode() == KeyCode.S)
+            if(e.getCode() == KeyCode.S && !p1Attack)
             {
                 p1.setImage(player1.getImageFighterPunchL());
                 sPressed.set(true);
@@ -167,6 +187,7 @@ public class Arena
             if(e.getCode() == KeyCode.W)
             {
                 wPressed.set(false);
+                p1Jump = false;
             }
 
             if(e.getCode() == KeyCode.S)
@@ -180,7 +201,6 @@ public class Arena
             }
 
             // Player 2
-
             if(e.getCode() == KeyCode.LEFT)
             {
                 leftPressed.set(false);
@@ -267,10 +287,10 @@ public class Arena
             {
                 timer.start();
             }
-            else if(!wPressed.get())
-            {
-                p1.setImage(player1.getImageFighterStanceL());
-            }
+//            else if(!wPressed.get())
+//            {
+//                p1.setImage(player1.getImageFighterStanceL());
+//            }
         });
 
         sPressed.addListener((obs, wasPressed, nowPressed) ->
