@@ -107,6 +107,7 @@ public class Arena
                 // Player 1 jumps
                 if(e.getCode() == KeyCode.W && !p1Jump)
                 {
+                    p1Jump = true;
                     p1.setY(303 - (player1.getImageFighterJumpL().getHeight() - player1.getImageFighterStanceL().getHeight()));
                     TranslateTransition jumpP1 = new TranslateTransition(Duration.millis(365), p1);
                     jumpP1.setByY(-300);
@@ -131,10 +132,10 @@ public class Arena
                     jumpP1.setOnFinished(event -> {
                         p1.setY(303);
                         p1.setImage(player1.getImageFighterStanceL());
+                        p1Jump = false;
                     });
 
 
-                    p1Jump = true;
                     wPressed.set(true);
                 }
 
@@ -184,6 +185,7 @@ public class Arena
                 // Player 2 jumps
                 if(e.getCode() == KeyCode.UP && !p2Jump)
                 {
+                    p2Jump = true;
                     p2.setY(303 - (player2.getImageFighterJumpR().getHeight() - player2.getImageFighterStanceR().getHeight()));
                     TranslateTransition jumpP2 = new TranslateTransition(Duration.millis(325), p2);
                     jumpP2.setByY(-300);
@@ -208,8 +210,9 @@ public class Arena
                     jumpP2.setOnFinished(event -> {
                         p2.setY(303);
                         p2.setImage(player2.getImageFighterStanceR());
+                        p2Jump = false;
                     });
-                    p2Jump = true;
+
                     upPressed.set(true);
 
                 }
@@ -263,7 +266,7 @@ public class Arena
             if(e.getCode() == KeyCode.W)
             {
                 wPressed.set(false);
-                p1Jump = false;
+//                p1Jump = false;
             }
 
             if(e.getCode() == KeyCode.S)
@@ -291,7 +294,7 @@ public class Arena
             if(e.getCode() == KeyCode.UP)
             {
                 upPressed.set(false);
-                p2Jump = false;
+//                p2Jump = false;
 
             }
 
