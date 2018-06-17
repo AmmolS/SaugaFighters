@@ -27,6 +27,8 @@ public class Main extends Application
         CharacterSelectScreen cs = new CharacterSelectScreen(stage);
         ControlsMenu cm = new ControlsMenu(stage, ms);
         Arena arena = new Arena();
+        Music music = new Music();
+        music.playMusic();
 
         cs.setMenu(ms);
         cs.setArenaSelect(as);
@@ -34,6 +36,7 @@ public class Main extends Application
         as.setArenaSetup(arena);
         ms.setCm(cm);
         ms.setCs(cs);
+        arena.setMenu(ms);
         stage.setScene(ms.getStartMenu());
         stage.show();
 

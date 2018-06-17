@@ -9,20 +9,25 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
+
 public class Arena
 {
     private Fighter player1, player2;
     private Image arenaChoice;
     private Scene arena;
+    private Menu menu;
 
     private Boolean p1JumpAction = false;
     private Boolean p1PunchAction = false;
@@ -30,6 +35,9 @@ public class Arena
     private Boolean p2JumpAction = false;
     private Boolean p2PunchAction = false;
     private Boolean p2KickAction = false;
+
+    private AudioClip punch;
+    private AudioClip kick;
 
     private Boolean gameOver = false;
 
@@ -84,13 +92,66 @@ public class Arena
         player2Text.setX(950);
         player2Text.setY(0);
 
+        ImageView fight = new ImageView(new Image("/Assets/fight.png"));
+        fight.setX(250);
+        fight.setY(0);
+
+        ImageView player1Wins = new ImageView(new Image("/Assets/player1Wins.png"));
+        player1Wins.setX(250);
+        player1Wins.setY(100);
+        player1Wins.setVisible(false);
+
+        ImageView player2Wins = new ImageView(new Image("/Assets/player2Wins.png"));
+        player2Wins.setX(250);
+        player2Wins.setY(100);
+        player2Wins.setVisible(false);
+
+        Button menuButton = new Button("", new ImageView("/Assets/menu.png"));
+        menuButton.setStyle("-fx-background-color: transparent; ");
+        menuButton.setOnAction(event -> {
+            this.menu = new Menu(stage);
+            ArenaSelectScreen as = new ArenaSelectScreen(stage);
+            CharacterSelectScreen cs = new CharacterSelectScreen(stage);
+            ControlsMenu cm = new ControlsMenu(stage, this.menu);
+            Arena arena = new Arena();
+
+            cs.setMenu(this.menu);
+            cs.setArenaSelect(as);
+            cs.setArena(arena);
+            as.setArenaSetup(arena);
+            this.menu.setCm(cm);
+            menu.setCs(cs);
+            arena.setMenu(this.menu);
+            stage.setScene(this.menu.getStartMenu());
+        });
+        menuButton.setOnMouseEntered(event -> menuButton.setGraphic(new ImageView("/Assets/menu_hover.png")));
+        menuButton.setOnMouseExited(event -> menuButton.setGraphic(new ImageView("/Assets/menu.png")));
+        menuButton.setLayoutX(500);
+        menuButton.setLayoutY(200);
+        menuButton.setVisible(false);
+
+        Button quit = new Button();
+        quit.setGraphic(new ImageView("/Assets/Menu/quit.png"));
+        quit.setStyle("-fx-background-color: transparent; ");
+        quit.setOnAction(event -> System.exit(0));
+        quit.setOnMouseEntered(event -> quit.setGraphic(new ImageView("/Assets/Menu/quit_hover.png")));
+        quit.setOnMouseExited(event -> quit.setGraphic(new ImageView("/Assets/Menu/quit.png")));
+        quit.setLayoutX(465);
+        quit.setLayoutY(275);
+        quit.setVisible(false);
+
+
+
+
+
         Circle center = new Circle(20, Color.BLUE);
 
         center.setCenterX(600);
         center.setCenterY(0);
 
         Group arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text);
+        arenaLayout.getChildren().addAll(background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text, fight,
+                player1Wins, player2Wins, menuButton, quit);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
         arena.setOnKeyPressed(e ->
@@ -330,10 +391,6 @@ public class Arena
                     rightEnterPressed.set(true);
                 }
             }
-//            else
-//                {
-//                    System.exit(0);
-//                }
         });
 
         arena.setOnKeyReleased(e ->
@@ -393,6 +450,7 @@ public class Arena
 
             if(player2.getHealth() <= 0 && !gameOver)
             {
+
                 Transition winAnimationP1 = new Transition()
                 {
                     {
@@ -419,12 +477,17 @@ public class Arena
                     }
                 };
                 gameOver = true;
+                fight.setVisible(false);
+                player1Wins.setVisible(true);
+                menuButton.setVisible(true);
+                quit.setVisible(true);
                 winAnimationP1.play();
                 koAnimationP2.play();
             }
 
             else if(player1.getHealth() <= 0 && !gameOver)
             {
+
                 Transition winAnimationP2 = new Transition()
                 {
                     {
@@ -451,6 +514,10 @@ public class Arena
                     }
                 };
                 gameOver = true;
+                fight.setVisible(false);
+                player2Wins.setVisible(true);
+                menuButton.setVisible(true);
+                quit.setVisible(true);
                 winAnimationP2.play();
                 koAnimationP1.play();
             }
@@ -514,11 +581,13 @@ public class Arena
             if(sPressed.get())
             {
                 if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
-                            {
-                                player2.takeDamage(20);
-                                p2HealthBar.setWidth(player2.getHealth());
-                                p2HealthBar.setX(p2HealthBar.getX() + 20);
-                            }
+                {
+                    player2.takeDamage(20);
+                    p2HealthBar.setWidth(player2.getHealth());
+                    p2HealthBar.setX(p2HealthBar.getX() + 20);
+                    punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
+                    punch.play();
+                }
             }
         });
 
@@ -531,6 +600,8 @@ public class Arena
                     player2.takeDamage(40);
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + 40);
+                    kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
+                    kick.play();
                 }
             }
         });
@@ -566,10 +637,12 @@ public class Arena
             if(downPressed.get())
             {
                 if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
-                            {
-                                player1.takeDamage(20);
-                                p1HealthBar.setWidth(player1.getHealth());
-                            }
+                {
+                    player1.takeDamage(20);
+                    p1HealthBar.setWidth(player1.getHealth());
+                    punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
+                    punch.play();
+                }
             }
         });
 
@@ -581,6 +654,8 @@ public class Arena
                 {
                     player1.takeDamage(40);
                     p1HealthBar.setWidth(player1.getHealth());
+                    kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
+                    kick.play();
                 }
             }
         });
@@ -605,5 +680,10 @@ public class Arena
     public Scene getArena()
     {
         return this.arena;
+    }
+
+    public void setMenu(Menu menu)
+    {
+        this.menu = menu;
     }
 }
