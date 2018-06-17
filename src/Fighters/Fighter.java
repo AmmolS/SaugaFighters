@@ -31,10 +31,16 @@ public class Fighter
     private Image[] listFighterPunchR;
     private Image[] listFighterKickL;
     private Image[] listFighterKickR;
+    private Image[] listFighterKOL;
+    private Image[] listFighterKOR;
+    private Image[] listFighterWinL;
+    private Image[] listFighterWinR;
 
     private int fighterJumpDuration;
     private int fighterPunchDuration;
     private int fighterKickDuration;
+    private int fighterKODuration;
+    private int fighterWinDuration;
 
     Fighter()
     {
@@ -45,7 +51,12 @@ public class Fighter
 
     }
 
-    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL, Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR, Image[] listJumpL, Image[] listJumpR, Image[] listPunchL, Image[] listPunchR, Image[] listKickL, Image[] listKickR, int jumpDuration, int punchDuration, int kickDuration)
+    public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL,
+                                 Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR,
+                                 Image[] listJumpL, Image[] listJumpR, Image[] listPunchL, Image[] listPunchR,
+                                 Image[] listKickL, Image[] listKickR, Image[] listKOL, Image[] listKOR,
+                                 Image[] listWinL, Image[] listWinR, int jumpDuration, int punchDuration,
+                                 int kickDuration, int koDuration, int winDuration)
     {
         this.imageFighterStanceL = stanceL;
         this.imageFighterStanceR = stanceR;
@@ -57,17 +68,23 @@ public class Fighter
         this.imageFighterPunchR = punchR;
         this.imageFighterJumpL = jumpL;
         this.imageFighterJumpR = jumpR;
+
         this.listFighterJumpL = listJumpL;
         this.listFighterJumpR = listJumpR;
         this.listFighterPunchL = listPunchL;
         this.listFighterPunchR = listPunchR;
         this.listFighterKickL = listKickL;
         this.listFighterKickR = listKickR;
+        this.listFighterKOL = listKOL;
+        this.listFighterKOR = listKOR;
+        this.listFighterWinL = listWinL;
+        this.listFighterWinR = listWinR;
+
         this.fighterJumpDuration = jumpDuration;
         this.fighterKickDuration = kickDuration;
         this.fighterPunchDuration = punchDuration;
-
-
+        this.fighterKODuration = koDuration;
+        this.fighterWinDuration = winDuration;
     }
 
     public Image getImageFighterStanceL()
@@ -150,6 +167,26 @@ public class Fighter
         return listFighterKickR;
     }
 
+    public Image[] getListFighterKOL()
+    {
+        return listFighterKOL;
+    }
+
+    public Image[] getListFighterKOR()
+    {
+        return listFighterKOR;
+    }
+
+    public Image[] getListFighterWinL()
+    {
+        return listFighterWinL;
+    }
+
+    public Image[] getListFighterWinR()
+    {
+        return listFighterWinR;
+    }
+
     public void takeDamage(int damage)
     {
         this.health -= damage;
@@ -162,8 +199,7 @@ public class Fighter
 
     public Rectangle getHealthBar()
     {
-        Rectangle health_bar = new Rectangle(this.health, 20, Color.RED);
-        return health_bar;
+        return new Rectangle(this.health, 20, Color.RED);
     }
 
     public int getFighterJumpDuration()
@@ -179,5 +215,15 @@ public class Fighter
     public int getFighterPunchDuration()
     {
         return fighterPunchDuration;
+    }
+
+    public int getFighterKODuration()
+    {
+        return fighterKODuration;
+    }
+
+    public int getFighterWinDuration()
+    {
+        return fighterWinDuration;
     }
 }

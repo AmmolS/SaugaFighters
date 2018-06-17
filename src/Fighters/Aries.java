@@ -21,6 +21,10 @@ public class Aries extends Fighter
     private Image[] listAriesJumpR = new Image[34];
     private Image[] listAriesKickL = new Image[11];
     private Image[] listAriesKickR = new Image[11];
+    private Image[] listAriesKOL = new Image[17];
+    private Image[] listAriesKOR = new Image[17];
+    private Image[] listAriesWinL = new Image[24];
+    private Image[] listAriesWinR = new Image[24];
 
 
 
@@ -62,6 +66,34 @@ public class Aries extends Fighter
             listAriesKickR[i] = new Image(url);
         }
 
-        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR, imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL, imageAriesJumpR, listAriesJumpL, listAriesJumpR, listAriesPunchL, listAriesPunchR, listAriesKickL, listAriesKickR, 365, 340, 460);
+        for(int i = 0; i < listAriesKOL.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesKOFramesL/Frame%s.png", Integer.toString(i));
+            listAriesKOL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesKOR.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesKOFramesR/Frame%s.png", Integer.toString(i));
+            listAriesKOR[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesWinL.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesWinFramesL/Frame%s.png", Integer.toString(i));
+            listAriesWinL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listAriesWinR.length; i++ )
+        {
+            String url = String.format("/Assets/Aries/AriesWinFramesR/Frame%s.png", Integer.toString(i));
+            listAriesWinR[i] = new Image(url);
+        }
+
+        super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR,
+                imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL,
+                imageAriesJumpR, listAriesJumpL, listAriesJumpR, listAriesPunchL, listAriesPunchR, listAriesKickL,
+                listAriesKickR, listAriesKOL, listAriesKOR, listAriesWinL, listAriesWinR, 365,
+                340, 460, 2250,3300);
     }
 }

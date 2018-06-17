@@ -21,6 +21,10 @@ public class Kratos extends Fighter
     private Image[] listKratosJumpR = new Image[31];
     private Image[] listKratosKickL = new Image[14];
     private Image[] listKratosKickR = new Image[14];
+    private Image[] listKratosKOL = new Image[16];
+    private Image[] listKratosKOR = new Image[16];
+    private Image[] listKratosWinL = new Image[32];
+    private Image[] listKratosWinR = new Image[32];
 
     public Kratos()
     {
@@ -61,6 +65,34 @@ public class Kratos extends Fighter
             listKratosKickR[i] = new Image(url);
         }
 
-        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR, imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL, imageKratosJumpR, listKratosJumpL, listKratosJumpR, listKratosPunchL, listKratosPunchR, listKratosKickL, listKratosKickR, 325, 650, 900);
+        for(int i = 0; i < listKratosKOL.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosKOFramesL/Frame%s.png", Integer.toString(i));
+            listKratosKOL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listKratosKOR.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosKOFramesR/Frame%s.png", Integer.toString(i));
+            listKratosKOR[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listKratosWinL.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosWinFramesL/Frame%s.png", Integer.toString(i));
+            listKratosWinL[i] = new Image(url);
+        }
+
+        for(int i = 0; i < listKratosWinR.length; i++ )
+        {
+            String url = String.format("/Assets/Kratos/KratosWinFramesR/Frame%s.png", Integer.toString(i));
+            listKratosWinR[i] = new Image(url);
+        }
+
+        super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR,
+                imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL,
+                imageKratosJumpR, listKratosJumpL, listKratosJumpR, listKratosPunchL, listKratosPunchR, listKratosKickL,
+                listKratosKickR, listKratosKOL, listKratosKOR, listKratosWinL, listKratosWinR, 325,
+                650, 900, 2180, 6990);
     }
 }
