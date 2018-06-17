@@ -4,30 +4,31 @@ import javafx.scene.image.Image;
 
 public class Kratos extends Fighter
 {
-    private Image imageKratosStanceL = new Image("/Assets/Kratos/KratosStance.gif");
-    private Image imageKratosStanceR = new Image("/Assets/Kratos/KratosStanceRight.gif");
-    private Image imageKratosForwardL = new Image("/Assets/Kratos/KratosForward.gif");
-    private Image imageKratosForwardR = new Image("/Assets/Kratos/KratosForwardRight.gif");
-    private Image imageKratosBackwardL = new Image("/Assets/Kratos/KratosBackward.gif");
-    private Image imageKratosBackwardR = new Image("/Assets/Kratos/KratosBackwardRight.gif");
-    private Image imageKratosPunchL = new Image("/Assets/Kratos/KratosHPunch.gif");
-    private Image imageKratosPunchR = new Image("/Assets/Kratos/KratosHPunchR.gif");
-    private Image imageKratosJumpL = new Image("/Assets/Kratos/KratosJump.gif");
-    private Image imageKratosJumpR = new Image("/Assets/Kratos/KratosJumpR.gif");
-
-    private Image[] listKratosPunchL = new Image[16];
-    private Image[] listKratosPunchR = new Image[16];
-    private Image[] listKratosJumpL = new Image[31];
-    private Image[] listKratosJumpR = new Image[31];
-    private Image[] listKratosKickL = new Image[14];
-    private Image[] listKratosKickR = new Image[14];
-    private Image[] listKratosKOL = new Image[16];
-    private Image[] listKratosKOR = new Image[16];
-    private Image[] listKratosWinL = new Image[32];
-    private Image[] listKratosWinR = new Image[32];
-
     public Kratos()
     {
+
+        Image imageKratosStanceL = new Image("/Assets/Kratos/KratosStance.gif");
+        Image imageKratosStanceR = new Image("/Assets/Kratos/KratosStanceRight.gif");
+        Image imageKratosForwardL = new Image("/Assets/Kratos/KratosForward.gif");
+        Image imageKratosForwardR = new Image("/Assets/Kratos/KratosForwardRight.gif");
+        Image imageKratosBackwardL = new Image("/Assets/Kratos/KratosBackward.gif");
+        Image imageKratosBackwardR = new Image("/Assets/Kratos/KratosBackwardRight.gif");
+        Image imageKratosPunchL = new Image("/Assets/Kratos/KratosHPunch.gif");
+        Image imageKratosPunchR = new Image("/Assets/Kratos/KratosHPunchR.gif");
+        Image imageKratosJumpL = new Image("/Assets/Kratos/KratosJump.gif");
+        Image imageKratosJumpR = new Image("/Assets/Kratos/KratosJumpR.gif");
+
+        Image[] listKratosPunchL = new Image[16];
+        Image[] listKratosPunchR = new Image[16];
+        Image[] listKratosJumpL = new Image[31];
+        Image[] listKratosJumpR = new Image[31];
+        Image[] listKratosKickL = new Image[14];
+        Image[] listKratosKickR = new Image[14];
+        Image[] listKratosKOL = new Image[16];
+        Image[] listKratosKOR = new Image[16];
+        Image[] listKratosWinL = new Image[32];
+        Image[] listKratosWinR = new Image[32];
+
 
         for(int i = 0; i < listKratosPunchL.length; i++ )
         {

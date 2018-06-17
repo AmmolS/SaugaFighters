@@ -4,32 +4,31 @@ import javafx.scene.image.Image;
 
 public class Aries extends Fighter
 {
-    private Image imageAriesStanceL = new Image("/Assets/Aries/AriesStance.gif");
-    private Image imageAriesStanceR = new Image("/Assets/Aries/AriesStanceRight.gif");
-    private Image imageAriesForwardL = new Image("/Assets/Aries/AriesForward.gif");
-    private Image imageAriesForwardR = new Image("/Assets/Aries/AriesForwardRight.gif");
-    private Image imageAriesBackwardL = new Image("/Assets/Aries/AriesBackward.gif");
-    private Image imageAriesBackwardR = new Image("/Assets/Aries/AriesBackwardR.gif");
-    private Image imageAriesPunchL = new Image("/Assets/Aries/AriesMPunch.gif");
-    private Image imageAriesPunchR = new Image("/Assets/Aries/AriesMPunchR.gif");
-    private Image imageAriesJumpL = new Image("/Assets/Aries/AriesJump.gif");
-    private Image imageAriesJumpR = new Image("/Assets/Aries/AriesJumpR.gif");
-
-    private Image[] listAriesPunchL = new Image[8];
-    private Image[] listAriesPunchR = new Image[8];
-    private Image[] listAriesJumpL = new Image[34];
-    private Image[] listAriesJumpR = new Image[34];
-    private Image[] listAriesKickL = new Image[11];
-    private Image[] listAriesKickR = new Image[11];
-    private Image[] listAriesKOL = new Image[17];
-    private Image[] listAriesKOR = new Image[17];
-    private Image[] listAriesWinL = new Image[24];
-    private Image[] listAriesWinR = new Image[24];
-
-
 
     public Aries()
     {
+        Image imageAriesStanceL = new Image("/Assets/Aries/AriesStance.gif");
+        Image imageAriesStanceR = new Image("/Assets/Aries/AriesStanceRight.gif");
+        Image imageAriesForwardL = new Image("/Assets/Aries/AriesForward.gif");
+        Image imageAriesForwardR = new Image("/Assets/Aries/AriesForwardRight.gif");
+        Image imageAriesBackwardL = new Image("/Assets/Aries/AriesBackward.gif");
+        Image imageAriesBackwardR = new Image("/Assets/Aries/AriesBackwardR.gif");
+        Image imageAriesPunchL = new Image("/Assets/Aries/AriesMPunch.gif");
+        Image imageAriesPunchR = new Image("/Assets/Aries/AriesMPunchR.gif");
+        Image imageAriesJumpL = new Image("/Assets/Aries/AriesJump.gif");
+        Image imageAriesJumpR = new Image("/Assets/Aries/AriesJumpR.gif");
+
+        Image[] listAriesPunchL = new Image[8];
+        Image[] listAriesPunchR = new Image[8];
+        Image[] listAriesJumpL = new Image[34];
+        Image[] listAriesJumpR = new Image[34];
+        Image[] listAriesKickL = new Image[11];
+        Image[] listAriesKickR = new Image[11];
+        Image[] listAriesKOL = new Image[17];
+        Image[] listAriesKOR = new Image[17];
+        Image[] listAriesWinL = new Image[24];
+        Image[] listAriesWinR = new Image[24];
+
         for(int i = 0; i < listAriesPunchL.length; i++ )
         {
             String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i));

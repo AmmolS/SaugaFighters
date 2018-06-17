@@ -36,11 +36,8 @@ public class CharacterSelectScreen
         Image imageCharSelectTitle = new Image("/Assets/character_selection.png");
         Image imageBack = new Image("/Assets/back.png");
         Image imageConfirm = new Image("/Assets/confirm.png");
-        Image imageArrowLeft = new Image("/Assets/arrow_left.png");
-        Image imageArrowRight = new Image("/Assets/arrow_right.png");
         Image imageAriesStance = new Image("/Assets/Aries/AriesStance.gif");
         Image imageKratosStance = new Image("/Assets/Kratos/KratosStance.gif");
-        Image imageCharacterSelect = new Image("/Assets/character_selection.png");
 
         // Make Character Select Screen
         ImageView backgroundChar = new ImageView(imageBackground);

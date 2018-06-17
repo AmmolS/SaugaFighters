@@ -28,6 +28,7 @@ public class Main extends Application
         ControlsMenu cm = new ControlsMenu(stage, ms);
         Arena arena = new Arena();
 
+        cs.setMenu(ms);
         cs.setArenaSelect(as);
         cs.setArena(arena);
         as.setArenaSetup(arena);

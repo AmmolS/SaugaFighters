@@ -23,8 +23,6 @@ public class Arena
     private Fighter player1, player2;
     private Image arenaChoice;
     private Scene arena;
-    private ImageView background;
-    private Group arenaLayout;
 
     private Boolean p1JumpAction = false;
     private Boolean p1PunchAction = false;
@@ -50,19 +48,13 @@ public class Arena
     private BooleanProperty downPressed = new SimpleBooleanProperty();
     private BooleanProperty rightEnterPressed = new SimpleBooleanProperty();
 
-    private BooleanBinding dAndRightPressed = dPressed.and(rightPressed);
-    private BooleanBinding dAndLeftPressed = dPressed.and(leftPressed);
-
-    private BooleanBinding aAndRightPressed = aPressed.and(rightPressed);
-    private BooleanBinding aAndLeftPressed = aPressed.and(leftPressed);
-
     public void play(Stage stage)
     {
-        this.background = new ImageView(this.arenaChoice);
-        this.background.setX(0);
-        this.background.setY(0);
-        this.background.setFitWidth(1200);
-        this.background.setFitHeight(603);
+        ImageView background = new ImageView(this.arenaChoice);
+        background.setX(0);
+        background.setY(0);
+        background.setFitWidth(1200);
+        background.setFitHeight(603);
 
         ImageView p1 = new ImageView(this.player1.getImageFighterStanceL());
         p1.setX(100);
@@ -97,8 +89,8 @@ public class Arena
         center.setCenterX(600);
         center.setCenterY(0);
 
-        arenaLayout = new Group();
-        arenaLayout.getChildren().addAll(this.background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text);
+        Group arenaLayout = new Group();
+        arenaLayout.getChildren().addAll(background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
         arena.setOnKeyPressed(e ->
@@ -360,19 +352,16 @@ public class Arena
             if(e.getCode() == KeyCode.W)
             {
                 wPressed.set(false);
-//                p1JumpAction = false;
             }
 
             if(e.getCode() == KeyCode.S)
             {
                 sPressed.set(false);
-//                p1PunchAction = false;
             }
 
             if(e.getCode() == KeyCode.C)
             {
                 cPressed.set(false);
-//                p1KickAction = false;
             }
 
             // Player 2
@@ -389,20 +378,17 @@ public class Arena
             if(e.getCode() == KeyCode.UP)
             {
                 upPressed.set(false);
-//                p2JumpAction = false;
 
             }
 
             if(e.getCode() == KeyCode.DOWN)
             {
                 downPressed.set(false);
-//                p2PunchAction = false;
             }
 
             if(e.getCode() == KeyCode.ENTER)
             {
                 rightEnterPressed.set(false);
-//                p2KickAction = false;
             }
 
             if(player2.getHealth() <= 0 && !gameOver)
@@ -523,18 +509,6 @@ public class Arena
             }
         });
 
-        wPressed.addListener((obs, wasPressed, nowPressed) ->
-        {
-            if(wPressed.get())
-            {
-                timer.start();
-            }
-//            else if(!wPressed.get())
-//            {
-//                p1.setImage(player1.getImageFighterStanceL());
-//            }
-        });
-
         sPressed.addListener((obs, wasPressed, nowPressed) ->
         {
             if(sPressed.get())
@@ -545,11 +519,6 @@ public class Arena
                                 p2HealthBar.setWidth(player2.getHealth());
                                 p2HealthBar.setX(p2HealthBar.getX() + 20);
                             }
-                timer.start();
-            }
-            else if(!sPressed.get())
-            {
-                p1.setImage(player1.getImageFighterStanceL());
             }
         });
 
@@ -563,11 +532,6 @@ public class Arena
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + 40);
                 }
-                timer.start();
-            }
-            else if(!cPressed.get())
-            {
-                p1.setImage(player1.getImageFighterStanceL());
             }
         });
 
@@ -596,17 +560,6 @@ public class Arena
             }
         });
 
-        upPressed.addListener((obs, wasPressed, nowPressed) ->
-        {
-            if(upPressed.get())
-            {
-                timer.start();
-            }
-            else if(!upPressed.get())
-            {
-                p2.setImage(player2.getImageFighterStanceR());
-            }
-        });
 
         downPressed.addListener((obs, wasPressed, nowPressed) ->
         {
@@ -617,11 +570,6 @@ public class Arena
                                 player1.takeDamage(20);
                                 p1HealthBar.setWidth(player1.getHealth());
                             }
-                timer.start();
-            }
-            else if(!downPressed.get())
-            {
-                p2.setImage(player2.getImageFighterStanceR());
             }
         });
 
@@ -634,25 +582,8 @@ public class Arena
                     player1.takeDamage(40);
                     p1HealthBar.setWidth(player1.getHealth());
                 }
-                timer.start();
-            }
-            else if(!rightEnterPressed.get())
-            {
-                p2.setImage(player2.getImageFighterStanceR());
             }
         });
-
-
-
-//        dAndLeftPressed.addListener((obs, wasPressed, nowPressed) ->
-//        {
-//            if(nowPressed)
-//            {
-//                timer.start();
-//            }
-//        });
-
-
     }
 
 
@@ -676,79 +607,3 @@ public class Arena
         return this.arena;
     }
 }
-
-
-
-
-//              {
-//                    if(player1.getHealth() > 0 && player2.getHealth() > 0)
-//                    {
-//                        // Player 1
-//                        if (e.getCode() == KeyCode.D) {
-//                            p1.setImage(player1.getImageFighterForwardL());
-//                            p1.setLayoutX(p1.getLayoutX() + 30);
-//                            if (p1.getLayoutX() > 1000) {
-//                                p1.setLayoutX(p1.getLayoutX() - 30);
-//                            }
-//                        }
-//                        if (e.getCode() == KeyCode.A) {
-//                            p1.setImage(player1.getImageFighterBackwardL());
-//                            p1.setLayoutX(p1.getLayoutX() - 10);
-//                            if (p1.getLayoutX() < -100) {
-//                                p1.setLayoutX(p1.getLayoutX() + 10);
-//                            }
-//                        }
-//                        if (e.getCode() == KeyCode.F )
-//                        {
-//                            p1.setImage(player1.getImageFighterPunchL());
-//                            if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
-//                            {
-//                                player2.takeDamage(20);
-//                                System.out.println(player2.getHealth());
-//                            }
-//                        }
-//
-//                        if (e.getCode() == KeyCode.F && this.pressAttack)
-//                        {
-//                            p1.setImage(new Image("/Assets/Aries/AriesMPunch.gif"));
-//                            this.pressAttack = true;
-//                            if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
-//                            {
-//                                player2.takeDamage(20);
-//                            }
-//                        }
-//                        else if(e.getCode() == KeyCode.S)
-//                        {
-//                            p1.setImage(player1.getImageFighterStanceL());
-//                        }
-//
-//
-//                        // Player 2
-//                        if (e.getCode() == KeyCode.LEFT)
-//                        {
-//                            p2.setImage(player2.getImageFighterForwardR());
-//                            p2.setLayoutX(p2.getLayoutX() - 30);
-//                            if (p2.getLayoutX() < -1000) {
-//                                p2.setLayoutX(p2.getLayoutX() + 30);
-//                            }
-//                        }
-//
-//                        if (e.getCode() == KeyCode.RIGHT)
-//                        {
-//                            p2.setImage(player2.getImageFighterBackwardR());
-//                            p2.setLayoutX(p2.getLayoutX() + 10);
-//                            if (p2.getLayoutX() > 100) {
-//                                p2.setLayoutX(p2.getLayoutX() - 10);
-//                            }
-//                        }
-//
-//                        if (e.getCode() == KeyCode.DOWN)
-//                        {
-//                            p2.setImage(player2.getImageFighterPunchR());
-//                        }
-//                    }
-//                    else
-//                        {
-//                            System.exit(0);
-//                        }
-//                }

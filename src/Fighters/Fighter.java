@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Fighter
 {
-    int health = 400;
+    private int health = 400;
     double movementSpeed;
     double baseDamage;
 
