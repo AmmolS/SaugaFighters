@@ -20,6 +20,7 @@ public class ArenaSelectScreen
     {
 
         Image imageBackground = new Image("/Assets/Menu/Start_Menu.gif");
+        Image imageBgOption0 = new Image("/Assets/Background0.gif");
         Image imageBgOption1 = new Image("/Assets/Background1.gif");
         Image imageBgOption2 = new Image("/Assets/Background2.gif");
         Image imageArrowLeft = new Image("/Assets/leftt.png");
@@ -57,7 +58,8 @@ public class ArenaSelectScreen
         arrowLeft.setOnAction(event -> {
             if(BgOption.getImage() == imageBgOption1)
             {
-                BgOption.setImage(imageBgOption1);
+                BgOption.setImage(imageBgOption0);
+                arrowLeft.setVisible(false);
             }
             else if(BgOption.getImage() == imageBgOption2)
             {
@@ -74,6 +76,11 @@ public class ArenaSelectScreen
             {
                 BgOption.setImage(imageBgOption2);
                 arrowRight.setVisible(false);
+            }
+            else if(BgOption.getImage() == imageBgOption0)
+            {
+                BgOption.setImage(imageBgOption1);
+                arrowLeft.setVisible(true);
             }
         });
         arrowRight.setOnMouseEntered(event -> arrowRight.setGraphic(new ImageView("/Assets/right_hover.png")));
