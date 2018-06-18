@@ -29,6 +29,9 @@ public class Kratos extends Fighter
         Image[] listKratosWinL = new Image[32];
         Image[] listKratosWinR = new Image[32];
 
+        int punchDamage = 30;
+        int kickDamage = 60;
+
 
         for(int i = 0; i < listKratosPunchL.length; i++ )
         {
@@ -93,7 +96,9 @@ public class Kratos extends Fighter
         super.setImageFighters(imageKratosStanceL, imageKratosStanceR, imageKratosForwardL, imageKratosForwardR,
                 imageKratosBackwardL, imageKratosBackwardR, imageKratosPunchL, imageKratosPunchR, imageKratosJumpL,
                 imageKratosJumpR, listKratosJumpL, listKratosJumpR, listKratosPunchL, listKratosPunchR, listKratosKickL,
-                listKratosKickR, listKratosKOL, listKratosKOR, listKratosWinL, listKratosWinR, 325,
-                650, 900, 2180, 6990);
+                listKratosKickR, listKratosKOL, listKratosKOR, listKratosWinL, listKratosWinR);
+
+        super.setValues(325, 650, 900, 2180, 6990,
+                punchDamage, kickDamage);
     }
 }

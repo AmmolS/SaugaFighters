@@ -29,6 +29,9 @@ public class Aries extends Fighter
         Image[] listAriesWinL = new Image[24];
         Image[] listAriesWinR = new Image[24];
 
+        int punchDamage = 20;
+        int kickDamage = 40;
+
         for(int i = 0; i < listAriesPunchL.length; i++ )
         {
             String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i));
@@ -92,7 +95,9 @@ public class Aries extends Fighter
         super.setImageFighters(imageAriesStanceL, imageAriesStanceR, imageAriesForwardL, imageAriesForwardR,
                 imageAriesBackwardL, imageAriesBackwardR, imageAriesPunchL, imageAriesPunchR, imageAriesJumpL,
                 imageAriesJumpR, listAriesJumpL, listAriesJumpR, listAriesPunchL, listAriesPunchR, listAriesKickL,
-                listAriesKickR, listAriesKOL, listAriesKOR, listAriesWinL, listAriesWinR, 365,
-                340, 460, 2250,3300);
+                listAriesKickR, listAriesKOL, listAriesKOR, listAriesWinL, listAriesWinR);
+
+        super.setValues(365, 340, 460, 2250,3300,
+                punchDamage, kickDamage);
     }
 }

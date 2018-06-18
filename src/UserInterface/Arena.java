@@ -434,7 +434,6 @@ public class Arena
             if(e.getCode() == KeyCode.UP)
             {
                 upPressed.set(false);
-
             }
 
             if(e.getCode() == KeyCode.DOWN)
@@ -581,9 +580,9 @@ public class Arena
             {
                 if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
                 {
-                    player2.takeDamage(20);
+                    player2.takeDamage(player1.getFighterPunchDamage());
                     p2HealthBar.setWidth(player2.getHealth());
-                    p2HealthBar.setX(p2HealthBar.getX() + 20);
+                    p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterPunchDamage());
                     punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
                     punch.play();
                 }
@@ -596,9 +595,9 @@ public class Arena
             {
                 if (p1.getBoundsInParent().intersects(p2.getBoundsInParent()))
                 {
-                    player2.takeDamage(40);
+                    player2.takeDamage(player1.getFighterKickDamage());
                     p2HealthBar.setWidth(player2.getHealth());
-                    p2HealthBar.setX(p2HealthBar.getX() + 40);
+                    p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterKickDamage());
                     kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
                     kick.play();
                 }
@@ -637,7 +636,7 @@ public class Arena
             {
                 if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
                 {
-                    player1.takeDamage(20);
+                    player1.takeDamage(player2.getFighterPunchDamage());
                     p1HealthBar.setWidth(player1.getHealth());
                     punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
                     punch.play();
@@ -651,7 +650,7 @@ public class Arena
             {
                 if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
                 {
-                    player1.takeDamage(40);
+                    player1.takeDamage(player2.getFighterKickDamage());
                     p1HealthBar.setWidth(player1.getHealth());
                     kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
                     kick.play();

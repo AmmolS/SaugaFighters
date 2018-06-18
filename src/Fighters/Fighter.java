@@ -2,14 +2,13 @@ package Fighters;
 
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Fighter
 {
     private int health = 400;
-    double movementSpeed;
-    double baseDamage;
+    private int fighterPunchDamage;
+    private int fighterKickDamage;
 
     private Image imageFighterStanceL;
     private Image imageFighterStanceR;
@@ -39,21 +38,11 @@ public class Fighter
     private int fighterKODuration;
     private int fighterWinDuration;
 
-    Fighter()
-    {
-
-    }
-    Fighter(String inputName, double inputHealth, double inputPower, double inputMovement, double inputDamage)
-    {
-
-    }
-
     public void setImageFighters(Image stanceL, Image stanceR, Image forwardL, Image forwardR, Image backwardL,
                                  Image backwardR, Image punchL, Image punchR, Image jumpL, Image jumpR,
                                  Image[] listJumpL, Image[] listJumpR, Image[] listPunchL, Image[] listPunchR,
                                  Image[] listKickL, Image[] listKickR, Image[] listKOL, Image[] listKOR,
-                                 Image[] listWinL, Image[] listWinR, int jumpDuration, int punchDuration,
-                                 int kickDuration, int koDuration, int winDuration)
+                                 Image[] listWinL, Image[] listWinR)
     {
         this.imageFighterStanceL = stanceL;
         this.imageFighterStanceR = stanceR;
@@ -76,12 +65,20 @@ public class Fighter
         this.listFighterKOR = listKOR;
         this.listFighterWinL = listWinL;
         this.listFighterWinR = listWinR;
+    }
 
+    public void setValues(int jumpDuration, int punchDuration, int kickDuration, int koDuration, int winDuration,
+                          int punchDamage, int kickDamage)
+    {
         this.fighterJumpDuration = jumpDuration;
         this.fighterKickDuration = kickDuration;
         this.fighterPunchDuration = punchDuration;
         this.fighterKODuration = koDuration;
         this.fighterWinDuration = winDuration;
+
+        this.fighterPunchDamage = punchDamage;
+        this.fighterKickDamage = kickDamage;
+
     }
 
     public Image getImageFighterStanceL()
@@ -222,5 +219,15 @@ public class Fighter
     public int getFighterWinDuration()
     {
         return fighterWinDuration;
+    }
+
+    public int getFighterPunchDamage()
+    {
+        return fighterPunchDamage;
+    }
+
+    public int getFighterKickDamage()
+    {
+        return fighterKickDamage;
     }
 }

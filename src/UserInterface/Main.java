@@ -40,6 +40,5 @@ public class Main extends Application
         arena.setMenu(ms);
         stage.setScene(ms.getStartMenu());
         stage.show();
-
     }
 }
