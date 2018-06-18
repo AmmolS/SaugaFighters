@@ -55,15 +55,6 @@ public class Menu
         start.setLayoutX(525);
         start.setLayoutY(300);
 
-        Button help = new Button();
-        help.setGraphic(new ImageView(imageHelp));
-        help.setStyle("-fx-background-color: transparent; ");
-        help.setOnMouseEntered(event -> help.setGraphic(new ImageView("/Assets/Menu/help_hover.png")));
-        help.setOnMouseExited(event -> help.setGraphic(new ImageView(imageHelp)));
-        help.setLayoutX(465);
-        help.setLayoutY(375);
-
-
         Button control = new Button();
         control.setGraphic(new ImageView(imageControl));
         control.setStyle("-fx-background-color: transparent; ");
@@ -72,7 +63,6 @@ public class Menu
         control.setOnMouseExited(event -> control.setGraphic(new ImageView(imageControl)));
         control.setLayoutX(465);
         control.setLayoutY(375);
-
 
         Button quit = new Button();
         quit.setGraphic(new ImageView(imageQuit));
