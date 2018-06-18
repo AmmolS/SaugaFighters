@@ -105,6 +105,11 @@ public class Arena
         player2Wins.setY(100);
         player2Wins.setVisible(false);
 
+        ImageView tied = new ImageView("/Assets/tied.png");
+        tied.setX(400);
+        tied.setY(100);
+        tied.setVisible(false);
+
         Button menuButton = new Button("", new ImageView("/Assets/menu.png"));
         menuButton.setStyle("-fx-background-color: transparent; ");
         menuButton.setOnAction(event -> {
@@ -146,7 +151,7 @@ public class Arena
 
         Group arenaLayout = new Group();
         arenaLayout.getChildren().addAll(background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text, fight,
-                player1Wins, player2Wins, menuButton, quit, center);
+                player1Wins, player2Wins, tied, menuButton, quit, center);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
         /*
@@ -475,7 +480,7 @@ public class Arena
                 slashPressed.set(false);
             }
 
-            if(player2.getHealth() <= 0 && !gameOver)
+            if(player2.getHealth() <= 0 && player1.getHealth() > 0 && !gameOver)
             {
 
                 Transition winAnimationP1 = new Transition()
@@ -512,7 +517,7 @@ public class Arena
                 koAnimationP2.play();
             }
 
-            else if(player1.getHealth() <= 0 && !gameOver)
+            else if(player1.getHealth() <= 0 && player2.getHealth() > 0 && !gameOver)
             {
 
                 Transition winAnimationP2 = new Transition()
@@ -547,6 +552,14 @@ public class Arena
                 quit.setVisible(true);
                 winAnimationP2.play();
                 koAnimationP1.play();
+            }
+            else if (player1.getHealth() == 0 && player2.getHealth() == 0 && !gameOver)
+            {
+                gameOver = true;
+                fight.setVisible(false);
+                tied.setVisible(true);
+                menuButton.setVisible(true);
+                quit.setVisible(true);
             }
 
         });
