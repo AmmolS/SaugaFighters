@@ -7,8 +7,7 @@ import javafx.scene.shape.Rectangle;
 public class Fighter
 {
     private int health = 400;
-    private int fighterPunchDamage;
-    private int fighterKickDamage;
+    private int fighterPunchDamage, fighterKickDamage;
 
     private Image imageFighterStanceL;
     private Image imageFighterStanceR;

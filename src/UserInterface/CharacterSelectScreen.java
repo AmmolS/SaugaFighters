@@ -57,6 +57,12 @@ public class CharacterSelectScreen
         confirm.setOnMouseEntered(event -> confirm.setGraphic(new ImageView("/Assets/confirm_hover.png")));
         confirm.setOnMouseExited(event -> confirm.setGraphic(new ImageView(imageConfirm)));
         confirm.setOnAction(event -> {
+            /*
+            Classes, Methods and Object-Oriented Programming:
+            Set player methods are called for each player by the arena object. The set character method, which is part
+            of the "CharacterSelectScreen" class and is already an object, creates new  "Kratos" and "Aries" objects.
+            These objects are then passed to the set player methods, which are part of the "Arena" class.
+             */
             setCharacter(this.player1Char, this.player2Char);
             arena.setPlayer1(this.player1);
             arena.setPlayer2(this.player2);
@@ -66,7 +72,8 @@ public class CharacterSelectScreen
 
         ImageView ariesStanceChar = new ImageView(imageAriesStance);
         ToggleButton ariesStanceCharButton = new ToggleButton("Aries", ariesStanceChar);
-        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;");
+        ariesStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: " +
+                "#FFFFFF; -fx-font-weight: bold;");
         ariesStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         ariesStanceCharButton.setLayoutX(300);
         ariesStanceCharButton.setLayoutY(200);
@@ -77,17 +84,20 @@ public class CharacterSelectScreen
                 this.player1Char = "Aries";
 
             }
-            else if (ariesStanceCharButton.isSelected() && !this.player1Char.equals("") && !this.player1Char.equals("Aries") && this.player2Char.equals(""))
+            else if (ariesStanceCharButton.isSelected() && !this.player1Char.equals("") &&
+                    !this.player1Char.equals("Aries") && this.player2Char.equals(""))
             {
                 ariesStanceCharButton.setText("Aries - Player 2");
                 this.player2Char = "Aries";
             }
-            else if (!ariesStanceCharButton.isSelected() && !this.player1Char.equals("") && this.player2Char.equals("Aries"))
+            else if (!ariesStanceCharButton.isSelected() && !this.player1Char.equals("") &&
+                    this.player2Char.equals("Aries"))
             {
                 ariesStanceCharButton.setText("Aries");
                 this.player2Char = "";
             }
-            else if (!ariesStanceCharButton.isSelected() && this.player1Char.equals("Aries") && this.player2Char.equals(""))
+            else if (!ariesStanceCharButton.isSelected() && this.player1Char.equals("Aries") &&
+                    this.player2Char.equals(""))
             {
                 ariesStanceCharButton.setText("Aries");
                 this.player1Char = "";
@@ -101,12 +111,14 @@ public class CharacterSelectScreen
                     confirm.setVisible(false);
                 }
         });
-        ariesStanceCharButton.setOnMouseEntered(event -> ariesStanceCharButton.setGraphic(new ImageView("/Assets/Aries/AriesMPunch.gif")));
+        ariesStanceCharButton.setOnMouseEntered(event -> ariesStanceCharButton.setGraphic(new ImageView
+                ("/Assets/Aries/AriesMPunch.gif")));
         ariesStanceCharButton.setOnMouseExited(event -> ariesStanceCharButton.setGraphic(ariesStanceChar));
 
         ImageView kratosStanceChar = new ImageView(imageKratosStance);
         ToggleButton kratosStanceCharButton = new ToggleButton("Kratos", kratosStanceChar);
-        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; -fx-text-fill: #FFFFFF  ; -fx-font-weight: bold;");
+        kratosStanceCharButton.setStyle("-fx-background-color: transparent; -fx-font: 30px Papyrus; " +
+                "-fx-text-fill: #FFFFFF  ; -fx-font-weight: bold;");
         kratosStanceCharButton.setContentDisplay(ContentDisplay.TOP);
         kratosStanceCharButton.setLayoutX(674);
         kratosStanceCharButton.setLayoutY(200);
@@ -117,17 +129,20 @@ public class CharacterSelectScreen
                 this.player1Char = "Kratos";
 
             }
-            else if (kratosStanceCharButton.isSelected() && !this.player1Char.equals("") && !this.player1Char.equals("Kratos") && this.player2Char.equals(""))
+            else if (kratosStanceCharButton.isSelected() && !this.player1Char.equals("") && !this.player1Char.equals
+                    ("Kratos") && this.player2Char.equals(""))
             {
                 kratosStanceCharButton.setText("Kratos - Player 2");
                 this.player2Char = "Kratos";
             }
-            else if (!kratosStanceCharButton.isSelected() && !this.player1Char.equals("") && this.player2Char.equals("Kratos"))
+            else if (!kratosStanceCharButton.isSelected() && !this.player1Char.equals("") && this.player2Char.equals
+                    ("Kratos"))
             {
                 kratosStanceCharButton.setText("Kratos");
                 this.player2Char = "";
             }
-            else if (!kratosStanceCharButton.isSelected() && this.player1Char.equals("Kratos") && this.player2Char.equals(""))
+            else if (!kratosStanceCharButton.isSelected() && this.player1Char.equals("Kratos") &&
+                    this.player2Char.equals(""))
             {
                 kratosStanceCharButton.setText("Kratos");
                 this.player1Char = "";
@@ -141,7 +156,8 @@ public class CharacterSelectScreen
                     confirm.setVisible(false);
                 }
         });
-        kratosStanceCharButton.setOnMouseEntered(event -> kratosStanceCharButton.setGraphic(new ImageView("/Assets/Kratos/KratosHPunch.gif")));
+        kratosStanceCharButton.setOnMouseEntered(event -> kratosStanceCharButton.setGraphic(new ImageView
+                ("/Assets/Kratos/KratosHPunch.gif")));
         kratosStanceCharButton.setOnMouseExited(event -> kratosStanceCharButton.setGraphic(kratosStanceChar));
 
 
@@ -155,7 +171,8 @@ public class CharacterSelectScreen
         back.setLayoutY(503);
 
         Group characterMenuLayout = new Group();
-        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back, charSelectTitle, confirm);
+        characterMenuLayout.getChildren().addAll(backgroundChar, ariesStanceCharButton, kratosStanceCharButton, back,
+                charSelectTitle, confirm);
         Scene characterSelect = new Scene(characterMenuLayout, 1200, 603);
         characterMenuLayout.setCursor(new ImageCursor(new Image ("/Assets/cursor.png")));
         this.characterSelectScene = characterSelect;

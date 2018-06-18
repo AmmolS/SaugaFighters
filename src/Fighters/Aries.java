@@ -2,6 +2,11 @@ package Fighters;
 
 import javafx.scene.image.Image;
 
+/*
+Inheritance:
+This class inherits the 'Fighter' class. This is done since the fighter class provides access to methods that are
+common to all fighters. For example, it allows for a general way to access a fighter's images.
+ */
 public class Aries extends Fighter
 {
 
@@ -18,6 +23,10 @@ public class Aries extends Fighter
         Image imageAriesJumpL = new Image("/Assets/Aries/AriesJump.gif");
         Image imageAriesJumpR = new Image("/Assets/Aries/AriesJumpR.gif");
 
+        /*
+        Data Structures:
+        Arrays store the frames that are associated with a specific action (like punching).
+         */
         Image[] listAriesPunchL = new Image[8];
         Image[] listAriesPunchR = new Image[8];
         Image[] listAriesJumpL = new Image[34];
@@ -32,6 +41,13 @@ public class Aries extends Fighter
         int punchDamage = 20;
         int kickDamage = 40;
 
+
+        /*
+        Repetition:
+        For loops are used to add frames for the character's animation to arrays. The for loop iterates through its
+        code the number of times that is equivalent to the size of the array (which is the number of frames for that
+        animation).
+         */
         for(int i = 0; i < listAriesPunchL.length; i++ )
         {
             String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i));

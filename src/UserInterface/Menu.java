@@ -46,6 +46,12 @@ public class Menu
             title.setFitWidth(1000);
         });
 
+        /*
+        Graphical User Interfaces:
+        The user can select various buttons on the menu screen and each button performs a certain task. Clicking "Start"
+        changes the scene to the character selection screen, clicking "Control" changes the scene to the controls menu
+        screen, and clicking "Quit" exits the program.
+         */
         Button start = new Button();
         start.setGraphic(new ImageView(imageStart));
         start.setStyle("-fx-background-color: transparent; ");
@@ -82,7 +88,8 @@ public class Menu
         kratosStanceMenu.setY(325);
 
         Group startMenuLayout = new Group();
-        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu, kratosStanceMenu);
+        startMenuLayout.getChildren().addAll(backgroundMenu, title, start, quit, control, ariesStanceMenu,
+                kratosStanceMenu);
         startMenu = new Scene(startMenuLayout, 1200, 603);
 
         startMenu.setCursor(new ImageCursor(new Image( "/Assets/cursor.png")));

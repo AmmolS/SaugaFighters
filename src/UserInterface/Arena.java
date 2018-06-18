@@ -139,10 +139,6 @@ public class Arena
         quit.setLayoutY(275);
         quit.setVisible(false);
 
-
-
-
-
         Circle center = new Circle(20, Color.BLUE);
 
         center.setCenterX(600);
@@ -150,13 +146,25 @@ public class Arena
 
         Group arenaLayout = new Group();
         arenaLayout.getChildren().addAll(background, p1, p2, p1HealthBar, p2HealthBar, player1Text, player2Text, fight,
-                player1Wins, player2Wins, menuButton, quit);
+                player1Wins, player2Wins, menuButton, quit, center);
         this.arena = new Scene(arenaLayout, 1200, 603);
 
+        /*
+        Input - Processing - Output:
+        The game accepts keyboard input during the actual battle. The program then determines which key was pressed
+        produces a specific output. For example, if the "s" key was pressed, then the program would determine
+        that the character associated with the player would perform a punch action.
+         */
         arena.setOnKeyPressed(e ->
         {
             if(player1.getHealth() > 0 && player2.getHealth() > 0)
             {
+                /*
+                Control Structure:
+                The following code uses if statements to determine which actions the characters ons screen perform
+                when certain keys are pressed or released.
+                 */
+
                 // Player 1
                 // Player 1 moves right
                 if(e.getCode() == KeyCode.D && !p1PunchAction && !p1KickAction)
@@ -176,8 +184,10 @@ public class Arena
                 if(e.getCode() == KeyCode.W && !p1JumpAction && !p1PunchAction && !p1KickAction && !wPressed.get())
                 {
                     p1JumpAction = true;
-                    p1.setY(303 - (player1.getImageFighterJumpL().getHeight() - player1.getImageFighterStanceL().getHeight()));
-                    TranslateTransition jumpP1 = new TranslateTransition(Duration.millis(player1.getFighterJumpDuration()), p1);
+                    p1.setY(303 - (player1.getImageFighterJumpL().getHeight() -
+                            player1.getImageFighterStanceL().getHeight()));
+                    TranslateTransition jumpP1 = new TranslateTransition(Duration.millis
+                            (player1.getFighterJumpDuration()), p1);
                     jumpP1.setByY(-300);
                     jumpP1.setAutoReverse(true);
                     jumpP1.setCycleCount(2);
@@ -247,7 +257,8 @@ public class Arena
                     }
                     p1KickAction = true;
                     double currentY = p1.getY();
-                    p1.setY(p1.getY() - (player1.getListFighterKickR()[0].getHeight() - player1.getImageFighterStanceR().getHeight()));
+                    p1.setY(p1.getY() - (player1.getListFighterKickR()[0].getHeight() -
+                            player1.getImageFighterStanceR().getHeight()));
                     Transition kickAnimationP1 = new Transition()
                     {
                         {
@@ -288,8 +299,10 @@ public class Arena
                 if(e.getCode() == KeyCode.UP && !p2JumpAction && !p2PunchAction && !p2KickAction && !upPressed.get())
                 {
                     p2JumpAction = true;
-                    p2.setY(303 - (player2.getImageFighterJumpR().getHeight() - player2.getImageFighterStanceR().getHeight()));
-                    TranslateTransition jumpP2 = new TranslateTransition(Duration.millis(player2.getFighterJumpDuration()), p2);
+                    p2.setY(303 - (player2.getImageFighterJumpR().getHeight() -
+                            player2.getImageFighterStanceR().getHeight()));
+                    TranslateTransition jumpP2 = new TranslateTransition(Duration.millis
+                            (player2.getFighterJumpDuration()), p2);
                     jumpP2.setByY(-300);
                     jumpP2.setAutoReverse(true);
                     jumpP2.setCycleCount(2);
@@ -320,7 +333,8 @@ public class Arena
                 }
 
                 // Player 2 punches
-                if(e.getCode() == KeyCode.DOWN && !p2PunchAction && !p2KickAction && !p2JumpAction && !downPressed.get())
+                if(e.getCode() == KeyCode.DOWN && !p2PunchAction && !p2KickAction && !p2JumpAction &&
+                        !downPressed.get())
                 {
                     if(leftPressed.get() || rightPressed.get())
                     {
@@ -329,7 +343,8 @@ public class Arena
                     }
                     p2PunchAction = true;
                     double currentX = p2.getX();
-                    p2.setX(p2.getX() - (player2.getImageFighterPunchR().getWidth() - player2.getImageFighterStanceR().getWidth()));
+                    p2.setX(p2.getX() - (player2.getImageFighterPunchR().getWidth() -
+                            player2.getImageFighterStanceR().getWidth()));
                     Transition punchAnimationP2 = new Transition()
                     {
                         {
@@ -356,7 +371,8 @@ public class Arena
                 }
 
                 // Player 2 kicks
-                if(e.getCode() == KeyCode.ENTER && !p2KickAction && !p2PunchAction && !p2JumpAction && !rightEnterPressed.get())
+                if(e.getCode() == KeyCode.ENTER && !p2KickAction && !p2PunchAction && !p2JumpAction &&
+                        !rightEnterPressed.get())
                 {
                     if(leftPressed.get() || rightPressed.get())
                     {
@@ -366,8 +382,10 @@ public class Arena
                     p2KickAction = true;
                     double currentX = p2.getX();
                     double currentY = p2.getY();
-                    p2.setX(p2.getX() - (player2.getListFighterKickR()[0].getWidth() - player2.getImageFighterStanceR().getWidth()));
-                    p2.setY(p2.getY() - (player2.getListFighterKickR()[0].getHeight() - player2.getImageFighterStanceR().getHeight()));
+                    p2.setX(p2.getX() - (player2.getListFighterKickR()[0].getWidth() -
+                            player2.getImageFighterStanceR().getWidth()));
+                    p2.setY(p2.getY() - (player2.getListFighterKickR()[0].getHeight() -
+                            player2.getImageFighterStanceR().getHeight()));
                     Transition kickAnimationP2 = new Transition()
                     {
                         {
