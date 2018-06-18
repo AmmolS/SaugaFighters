@@ -53,7 +53,7 @@ public class Arena
     private BooleanProperty leftPressed = new SimpleBooleanProperty();
     private BooleanProperty upPressed = new SimpleBooleanProperty();
     private BooleanProperty downPressed = new SimpleBooleanProperty();
-    private BooleanProperty rightEnterPressed = new SimpleBooleanProperty();
+    private BooleanProperty slashPressed = new SimpleBooleanProperty();
 
     public void play(Stage stage)
     {
@@ -371,8 +371,8 @@ public class Arena
                 }
 
                 // Player 2 kicks
-                if(e.getCode() == KeyCode.ENTER && !p2KickAction && !p2PunchAction && !p2JumpAction &&
-                        !rightEnterPressed.get())
+                if(e.getCode() == KeyCode.SLASH && !p2KickAction && !p2PunchAction && !p2JumpAction &&
+                        !slashPressed.get())
                 {
                     if(leftPressed.get() || rightPressed.get())
                     {
@@ -405,7 +405,7 @@ public class Arena
                         p2.setY(currentY);
                         p2KickAction = false;
                     });
-                    rightEnterPressed.set(true);
+                    slashPressed.set(true);
                 }
             }
         });
@@ -459,9 +459,9 @@ public class Arena
                 downPressed.set(false);
             }
 
-            if(e.getCode() == KeyCode.ENTER)
+            if(e.getCode() == KeyCode.SLASH)
             {
-                rightEnterPressed.set(false);
+                slashPressed.set(false);
             }
 
             if(player2.getHealth() <= 0 && !gameOver)
@@ -551,9 +551,9 @@ public class Arena
 
                 if (aPressed.get() && p1.getX() >= 0)
                 {
+
                     p1.setX((p1.getX() - 5));
                 }
-
                 // Player 2
                 if (leftPressed.get() && p2.getX() >= 0 && p1.getX() < p2.getX())
                 {
@@ -662,9 +662,9 @@ public class Arena
             }
         });
 
-        rightEnterPressed.addListener((obs, wasPressed, nowPressed) ->
+        slashPressed.addListener((obs, wasPressed, nowPressed) ->
         {
-            if(rightEnterPressed.get())
+            if(slashPressed.get())
             {
                 if (p2.getBoundsInParent().intersects(p1.getBoundsInParent()))
                 {
