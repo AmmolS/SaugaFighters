@@ -238,7 +238,7 @@ public class Arena
                 }
 
                 // Player 1 kicks
-                if(e.getCode() == KeyCode.C && !p1KickAction && !p1PunchAction && !cPressed.get())
+                if(e.getCode() == KeyCode.C && !p1KickAction && !p1PunchAction && !p1JumpAction && !cPressed.get())
                 {
                     if(aPressed.get() || dPressed.get())
                     {
