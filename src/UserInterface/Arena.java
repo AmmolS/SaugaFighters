@@ -23,7 +23,7 @@ import java.io.File;
 
 public class Arena
 {
-    private Fighter player1, player2;
+    private Fighter player1, player2; // Objects of the 'Fighter class were instantiated
     private Image arenaChoice;
     private Scene arena;
     private Menu menu;
@@ -119,7 +119,7 @@ public class Arena
             cs.setArena(arena);
             as.setArena(arena);
             this.menu.setControlsMenu(cm);
-            menu.setCharacterSelectScreen(cs);
+            this.menu.setCharacterSelectScreen(cs);
             arena.setMenu(this.menu);
             stage.setScene(this.menu.getStartMenu());
         });
@@ -157,6 +157,12 @@ public class Arena
          */
         arena.setOnKeyPressed(e ->
         {
+        /*
+        Exception/Event Handling:
+        The game performs an action whenever a KeyEvent occurs (so the player presses a key on the keyboard). This
+        lambda expression above contains a method that handles this event, which was modified to perform various actions
+        (ex. moving the character associated with the key that was pressed).
+         */
             if(player1.getHealth() > 0 && player2.getHealth() > 0)
             {
                 /*
@@ -166,18 +172,22 @@ public class Arena
                  */
 
                 // Player 1
-                // Player 1 moves right
+                // Player 1 moves to the right when the 'D' key is pressed on the keyboard, and certain conditions are
+                // met (like the player is not punching or kicking when it is pressed)
                 if(e.getCode() == KeyCode.D && !p1PunchAction && !p1KickAction)
                 {
-                    p1.setImage(player1.getImageFighterForwardL());
-                    dPressed.set(true);
+                    p1.setImage(player1.getImageFighterForwardL()); // The player's character on screen changes to a
+                    // gif of the character moving forward
+                    dPressed.set(true); // A boolean property associated with this key is set to true
                 }
 
-                // Player 1 moves left
+                // Player 1 moves left when the 'A' key is pressed on the keyboard, and certain conditions are
+                // met (like the player is not punching or kicking when it is pressed)
                 if(e.getCode() == KeyCode.A && !p1PunchAction && !p1KickAction)
                 {
-                    p1.setImage(player1.getImageFighterBackwardL());
-                    aPressed.set(true);
+                    p1.setImage(player1.getImageFighterBackwardL()); // The player's character on screen changes to a
+                    // gif of the character moving backward
+                    aPressed.set(true); // A boolean property associated with this key is set to true
                 }
 
                 // Player 1 jumps
@@ -410,9 +420,10 @@ public class Arena
             }
         });
 
-        arena.setOnKeyReleased(e ->
+        arena.setOnKeyReleased(e -> // The code below runs any key that was pressed was released
         {
             // Player 1
+            // If any of the following keys are released, then their associated boolean properties are set to false
             if(e.getCode() == KeyCode.D)
             {
                 dPressed.set(false);
@@ -545,6 +556,7 @@ public class Arena
             public void handle(long now) {
                 // Player 1
                 if (dPressed.get() && p1.getX() <= 1200 - p1.getImage().getWidth() && p1.getX() < p2.getX())
+                // The code runs if 'D' is pressed, and the x position of the character moves to the right on the screen
                 {
                     p1.setX((p1.getX() + 5));
                 }
@@ -568,13 +580,14 @@ public class Arena
         };
 
         // Player 1
-        dPressed.addListener((obs, wasPressed, nowPressed) ->
+        dPressed.addListener((obs, wasPressed, nowPressed) -> // A listener checks if the boolean property changes state
+                // (so the key is pressed or released)
         {
-            if(dPressed.get())
+            if(dPressed.get()) // If the key is pressed, then a timer for an animation starts
             {
                 timer.start();
             }
-            else if(!dPressed.get())
+            else if(!dPressed.get()) // If the key is released, then the character returns to their normal stance
             {
                 p1.setImage(player1.getImageFighterStanceL());
             }

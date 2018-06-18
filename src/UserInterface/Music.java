@@ -26,10 +26,11 @@ public class Music
         playlist.add(song4);
         playlist.add(song5);
 
-        mediaPlayer = new MediaPlayer(playlist.get((int)(Math.floor(Math.random()*4)+1)));
+        mediaPlayer = new MediaPlayer(playlist.get((int)(Math.random()*4)+1));
 
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setVolume(25);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
         return mediaPlayer;
     }

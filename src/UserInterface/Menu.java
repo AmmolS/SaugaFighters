@@ -52,14 +52,18 @@ public class Menu
         changes the scene to the character selection screen, clicking "Control" changes the scene to the controls menu
         screen, and clicking "Quit" exits the program.
          */
-        Button start = new Button();
-        start.setGraphic(new ImageView(imageStart));
-        start.setStyle("-fx-background-color: transparent; ");
-        start.setOnAction(event -> stage.setScene(this.characterSelectScreen.getCharacterSelectScene()));
-        start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png")));
-        start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart)));
+        Button start = new Button(); // A new start button is instantiated
+        start.setGraphic(new ImageView(imageStart)); // The button's graphic is set
+        start.setStyle("-fx-background-color: transparent; "); // The button's background is removed
+        start.setOnAction(event -> stage.setScene(this.characterSelectScreen.getCharacterSelectScene())); // When
+        // pressed, the button is set to change the scene that is displayed
+        start.setOnMouseEntered(event -> start.setGraphic(new ImageView("/Assets/Menu/start_hover.png"))); // The
+        // button changes colour when the mouse is hovered over it
+        start.setOnMouseExited(event -> start.setGraphic(new ImageView(imageStart))); // The button changes back to its
+        // standard graphic when the mouse no longer hovers over it
         start.setLayoutX(525);
         start.setLayoutY(300);
+        // The button is positioned on the screen
 
         Button control = new Button();
         control.setGraphic(new ImageView(imageControl));

@@ -63,10 +63,13 @@ public class CharacterSelectScreen
             of the "CharacterSelectScreen" class and is already an object, creates new  "Kratos" and "Aries" objects.
             These objects are then passed to the set player methods, which are part of the "Arena" class.
              */
-            setCharacter(this.player1Char, this.player2Char);
+            setCharacter(this.player1Char, this.player2Char); // This method sets characters based off the users'
+            // choices.
             arena.setPlayer1(this.player1);
             arena.setPlayer2(this.player2);
-            stage.setScene(this.arenaInfo.getArenaSelectScene());
+            // Both objects are passed to an instance of the arena class
+            stage.setScene(this.arenaInfo.getArenaSelectScene()); // The next the scene for arena selection is then
+            // retrieved
         });
         confirm.setVisible(false);
 
@@ -185,6 +188,7 @@ public class CharacterSelectScreen
 
     public void setCharacter(String p1, String p2)
     {
+        // Depending on what a player has chosen previously, an object for the player's choice is instantiated
         if(p1.equals("Kratos"))
         {
             this.player1 = new Kratos();

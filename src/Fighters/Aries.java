@@ -25,7 +25,7 @@ public class Aries extends Fighter
 
         /*
         Data Structures:
-        Arrays store the frames that are associated with a specific action (like punching).
+        Arrays store all the frames that are associated with a specific action (like punching).
          */
         Image[] listAriesPunchL = new Image[8];
         Image[] listAriesPunchR = new Image[8];
@@ -48,10 +48,12 @@ public class Aries extends Fighter
         code the number of times that is equivalent to the size of the array (which is the number of frames for that
         animation).
          */
-        for(int i = 0; i < listAriesPunchL.length; i++ )
+        for(int i = 0; i < listAriesPunchL.length; i++ ) // The loop runs the following code for the number of times
+            // that is equivalent to the size of the array
         {
-            String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i));
-            listAriesPunchL[i] = new Image(url);
+            String url = String.format("/Assets/Aries/AriesPunchFramesL/Frame%s.png", Integer.toString(i)); // The url
+            // of the frame is formatted so that each frame can be added ton the array
+            listAriesPunchL[i] = new Image(url); // Each frame is added to the array
         }
 
         for(int i = 0; i < listAriesPunchR.length; i++ )
