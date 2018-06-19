@@ -628,7 +628,7 @@ public class Arena
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterPunchDamage());
                     punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
-                    p2.setX(p2.getX()+20);
+                    p2.setX(p2.getX()+40);
                     punch.play();
                 }
             }
@@ -644,7 +644,7 @@ public class Arena
                     p2HealthBar.setWidth(player2.getHealth());
                     p2HealthBar.setX(p2HealthBar.getX() + player1.getFighterKickDamage());
                     kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
-                    p2.setX(p2.getX()+40);
+                    p2.setX(p2.getX()+60);
                     kick.play();
                 }
             }
@@ -685,7 +685,7 @@ public class Arena
                     player1.takeDamage(player2.getFighterPunchDamage());
                     p1HealthBar.setWidth(player1.getHealth());
                     punch = new AudioClip(new File("src/Audio/Effects/punch.wav").toURI().toString());
-                    p1.setX(p1.getX()-20);
+                    p1.setX(p1.getX()-40);
                     punch.play();
                 }
             }
@@ -700,7 +700,7 @@ public class Arena
                     player1.takeDamage(player2.getFighterKickDamage());
                     p1HealthBar.setWidth(player1.getHealth());
                     kick = new AudioClip(new File("src/Audio/Effects/kick.wav").toURI().toString());
-                    p1.setX(p1.getX()-40);
+                    p1.setX(p1.getX()-60);
                     kick.play();
                 }
             }
